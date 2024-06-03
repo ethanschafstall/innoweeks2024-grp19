@@ -1,6 +1,6 @@
 # Dev
 openssl/
-dbSetup.sql
+initdb.sql
 .env
 superAdminCreds.txt
 
