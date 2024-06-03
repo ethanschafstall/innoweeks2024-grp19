@@ -1,3 +1,9 @@
+# Dev
+openssl/
+dbSetup.sql
+.env
+superAdminCreds.txt
+
 # Logs
 logs
 *.log
