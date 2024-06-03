@@ -1,6 +1,5 @@
 
 import express from "express";
-import jwt from 'jsonwebtoken';
 import { connectToDatabase } from "../tools/sqlConnection.mjs";
 import { generateHash } from "../tools/hash.mjs";
 import { CheckDataType } from "../tools/TypeChecker.mjs";
@@ -26,12 +25,20 @@ registerRoute.post('/', connectToDatabaseMiddleware, async (req, res) => {
     return res.status(401).json({ error: "Invalid value types" });
   }
 
-  const queryString = `INSERT INTO t_users (useUsername, usePassword, useRole, useSalt) VALUES (?, ?, ?, ?)`;
-
+  const existingUserQuery = `SELECT * FROM t_users WHERE useUsername = ?;`;
   try {
-    const [result] = await req.dbConnection.execute(queryString, [username, hashedPassword, null, salt]);
+    const [existingUser] = await req.dbConnection.execute(existingUserQuery,[username]);
+    
+    if (existingUser.length >= 1) {
+      return res.status(200).json({ error: 'A user with the provided username already exists. Please choose a different username.' });
+    }
+    
+    const registerUserQuery = `INSERT INTO t_users (useUsername, usePassword, useRole, useSalt) VALUES (?, ?, ?, ?)`;
 
-    if (result.affectedRows === 1) {
+    const role = 'role';
+    const [registerUser] = await req.dbConnection.execute(registerUserQuery, [username, hashedPassword, role, salt]);
+
+    if (registerUser.affectedRows === 1) {
       const message = `User has successfully registered.`;
       return res.status(200).json({ message });
     } else {
@@ -43,4 +50,4 @@ registerRoute.post('/', connectToDatabaseMiddleware, async (req, res) => {
   }
 });
 
-export { registerRoute }; // Exporting the router for use in other files
+export { registerRoute };
