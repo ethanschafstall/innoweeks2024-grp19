@@ -1,8 +1,8 @@
-# AppName
+# PLACEHOLDERNAME
 
 ## Overview
 
-**PLACEHOLDER** makes it easy to share your current mood and emotions with friends and family. The app allows you to journal your feelings and visualize them over time.
+**PLACEHOLDERNAME** makes it easy to share your current mood and emotions with friends and family. The app allows you to journal your feelings and visualize them over time.
 
 ## Features
 
