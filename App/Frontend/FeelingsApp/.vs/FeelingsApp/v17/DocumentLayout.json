@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|c:\\users\\pq17tmn\\documents\\github\\innoweeks2024-grp19\\app\\frontend\\feelingsapp\\feelingsapp\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|solutionrelative:feelingsapp\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|c:\\users\\pq17tmn\\documents\\github\\innoweeks2024-grp19\\app\\frontend\\feelingsapp\\feelingsapp\\friendssite.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|solutionrelative:feelingsapp\\friendssite.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|c:\\users\\pq17tmn\\documents\\github\\innoweeks2024-grp19\\app\\frontend\\feelingsapp\\feelingsapp\\usersite.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|solutionrelative:feelingsapp\\usersite.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|c:\\users\\pq17tmn\\documents\\github\\innoweeks2024-grp19\\app\\frontend\\feelingsapp\\feelingsapp\\feelingssite.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|solutionrelative:feelingsapp\\feelingssite.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|c:\\users\\pq17tmn\\documents\\github\\innoweeks2024-grp19\\app\\frontend\\feelingsapp\\feelingsapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90A50020-7584-4E3E-8E64-940B681ABED0}|FeelingsApp\\FeelingsApp.csproj|solutionrelative:feelingsapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\AppShell.xaml",
+              "RelativeDocumentMoniker": "FeelingsApp\\AppShell.xaml",
+              "ToolTip": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\AppShell.xaml",
+              "RelativeToolTip": "FeelingsApp\\AppShell.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-03T12:40:31.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FriendsSite.xaml",
+              "DocumentMoniker": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\FriendsSite.xaml",
+              "RelativeDocumentMoniker": "FeelingsApp\\FriendsSite.xaml",
+              "ToolTip": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\FriendsSite.xaml",
+              "RelativeToolTip": "FeelingsApp\\FriendsSite.xaml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-03T12:29:30.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserSite.xaml",
+              "DocumentMoniker": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\UserSite.xaml",
+              "RelativeDocumentMoniker": "FeelingsApp\\UserSite.xaml",
+              "ToolTip": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\UserSite.xaml",
+              "RelativeToolTip": "FeelingsApp\\UserSite.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-03T12:29:10.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FeelingsSite.xaml",
+              "DocumentMoniker": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\FeelingsSite.xaml",
+              "RelativeDocumentMoniker": "FeelingsApp\\FeelingsSite.xaml",
+              "ToolTip": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\FeelingsSite.xaml",
+              "RelativeToolTip": "FeelingsApp\\FeelingsSite.xaml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-03T12:28:44.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "FeelingsApp\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\pq17tmn\\Documents\\GitHub\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\MauiProgram.cs",
+              "RelativeToolTip": "FeelingsApp\\MauiProgram.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T11:59:46.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
