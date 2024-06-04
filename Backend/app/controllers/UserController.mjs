@@ -8,16 +8,13 @@ import { privateKey } from "../privateKey.mjs";
 
 
 export const get = (req, res) => {
-  
-    const authorizationHeader = req.headers.authorization;
-    // Checking if authorization header exists
-    if (!authorizationHeader) {
-        // If authorization header is missing, return 401 Unauthorized status
+    const token = req.cookies.authToken;
+    // Checking if token exists
+    if (!token) {
+        // If token is missing, return 401 Unauthorized status
         const message = `You did not provide an authentication token. Please add one to the request header.`;
         return res.status(401).json({ message });
     } else {
-        // Extracting token from authorization header
-        const token = authorizationHeader.split(" ")[2];
         
         // Verifying the token with the secret key
         jwt.verify(token, privateKey, (error, decodedToken) => {

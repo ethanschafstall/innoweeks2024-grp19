@@ -5,16 +5,14 @@ import { privateKey } from "../privateKey.mjs";
 const router = express.Router();
 
 export const getAllUsers = async (req, res) => {
-    const authorizationHeader = req.headers.authorization;
+    const token = req.cookies.authToken;
 
-    // Checking if authorization header exists
-    if (!authorizationHeader) {
-        // If authorization header is missing, return 401 Unauthorized status
+    // Checking if token exists
+    if (!token) {
+        // If token is missing, return 401 Unauthorized status
         const message = `You did not provide an authentication token. Please add one to the request header.`;
         return res.status(401).json({ message });
     }
-
-    const token = authorizationHeader.split(" ")[2];
 
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
@@ -30,8 +28,8 @@ export const getAllUsers = async (req, res) => {
             return res.status(401).json({ message });
         }
         const userRole = decodedToken.userRole;
-
-        if (userRole !== "admin") {
+        console.log(decodedToken.userRole)
+        if (userRole !== "admin" && userRole !== "superadmin") {
             const message = `The user is not authorized to access this resource.`;
             return res.status(401).json({ message });
         }
@@ -50,11 +48,11 @@ export const getAllUsers = async (req, res) => {
 };
 
 export const getUsers = async (req, res) => {
-    const authorizationHeader = req.headers.authorization;
+    const token = req.cookies.authToken;
 
-    // Checking if authorization header exists
-    if (!authorizationHeader) {
-        // If authorization header is missing, return 401 Unauthorized status
+    // Checking if token exists
+    if (!token) {
+        // If token is missing, return 401 Unauthorized status
         const message = `You did not provide an authentication token. Please add one to the request header.`;
         return res.status(401).json({ message });
     }
@@ -72,8 +70,6 @@ export const getUsers = async (req, res) => {
         const message = "No username provided.";
         return res.status(400).json({ message });
     }
-
-    const token = authorizationHeader.split(" ")[2];
 
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
