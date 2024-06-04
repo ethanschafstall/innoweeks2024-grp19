@@ -80,6 +80,9 @@
 	  <MauiXaml Update="FriendsSite.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="LoginSite.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="UserSite.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

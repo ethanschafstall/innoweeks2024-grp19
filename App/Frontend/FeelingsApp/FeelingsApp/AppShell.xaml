@@ -25,10 +25,11 @@
       Icon="calendar.png"
       ContentTemplate="{DataTemplate local:Calendar}"
       />
-        <ShellContent Title="User"
+        <ShellContent Title="Connexion"
               Icon="user.png"
-              ContentTemplate="{DataTemplate local:UserSite}"
+              ContentTemplate="{DataTemplate local:LoginSite}"
               />
+        
         
     </TabBar>
 
@@ -40,4 +41,9 @@
         Title="FeelingsSite"
         Route="FeelingsSite"
         ContentTemplate="{DataTemplate local:FeelingsSite}"/>
+    <ShellContent 
+       Title="UserSite"
+       Route="UserSite"
+       ContentTemplate="{DataTemplate local:UserSite}"
+       />
 </Shell>
