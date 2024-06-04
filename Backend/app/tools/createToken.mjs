@@ -4,7 +4,8 @@ import { privateKey } from "../privateKey.mjs"; // Importing private key for JWT
 export function generateToken(user) {
     const payload = {
         username: user.useUsername,
-        userRole: user.useRole,
+        id: user.userId,
+        role: user.useRole,
     };
     const options = {
         expiresIn: '24h',
