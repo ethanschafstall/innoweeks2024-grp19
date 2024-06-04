@@ -35,7 +35,7 @@ registerRoute.post('/', connectToDatabaseMiddleware, async (req, res) => {
     
     const registerUserQuery = `INSERT INTO t_users (useUsername, usePassword, useRole, useSalt) VALUES (?, ?, ?, ?)`;
 
-    const role = 'role';
+    const role = 'user';
     const [registerUser] = await req.dbConnection.execute(registerUserQuery, [username, hashedPassword, role, salt]);
 
     if (registerUser.affectedRows === 1) {
