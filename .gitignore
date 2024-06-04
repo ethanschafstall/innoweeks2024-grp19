@@ -134,3 +134,24 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# C# .NET
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+*.sln
+*.csproj
+*.appsettings.json
+*.config
+*.dbmdl
+*.jfm
+*.ncrunch*
+_ReSharper*
+_TeamCity*
+
