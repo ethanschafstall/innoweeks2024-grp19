@@ -17,14 +17,23 @@ const dbConfig = {
   database: database
 };
 
-export const connectToDatabase = async () => {
+const connect = async () => {
   try {
-    console.log(dbConfig)
     const connection = await mysql.createConnection(dbConfig);
     console.log("Connected to the database");
     return connection;
   } catch (error) {
     console.error("Error connecting to the database:", error);
     throw error;
+  }
+};
+
+export const databaseConnectionMiddleware = async (req, res, next) => {
+  try {
+    req.dbConnection = await connect();
+    next();
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
