@@ -2,7 +2,6 @@ import express from "express"; // Importing express for router creation
 import { connectToDatabase } from "../tools/sqlConnection.mjs";
 import { checkHash } from "../tools/hash.mjs";
 import { generateToken } from "../tools/createToken.mjs";
-import cookie from 'cookie'
 
 const loginRoute = express(); // Creating a new instance of express router
 
