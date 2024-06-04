@@ -27,8 +27,7 @@ export const getAllUsers = async (req, res) => {
             }
             return res.status(401).json({ message });
         }
-        const userRole = decodedToken.userRole;
-        console.log(decodedToken.userRole)
+        const userRole = decodedToken.role;
         if (userRole !== "admin" && userRole !== "superadmin") {
             const message = `The user is not authorized to access this resource.`;
             return res.status(401).json({ message });
@@ -84,7 +83,7 @@ export const getUsers = async (req, res) => {
             }
             return res.status(401).json({ message });
         }
-        const userRole = decodedToken.userRole;
+        const userRole = decodedToken.role;
 
         if (userRole !== "admin") {
             const message = `The user is not authorized to access this resource.`;
