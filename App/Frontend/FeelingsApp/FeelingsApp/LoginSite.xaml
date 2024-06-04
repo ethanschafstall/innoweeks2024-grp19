@@ -21,8 +21,6 @@
             </Frame>
             <Button Text="Créer Compte" Clicked="OnCreateAccountClicked" BackgroundColor="Black" TextColor="White" CornerRadius="25" BorderColor="DimGray" BorderWidth="3" />
 
-
-
             <!-- Login Section -->
             <Label Text="Connexion" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" Margin="0,40,0,0"/>
 

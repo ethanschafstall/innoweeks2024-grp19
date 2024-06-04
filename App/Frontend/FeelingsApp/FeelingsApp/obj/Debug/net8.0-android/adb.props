@@ -1,2 +1,2 @@
-AdbTarget=-s 32151FDH30035H
+AdbTarget=-s emulator-5554
 AdbOptions=

@@ -1,0 +1,1 @@
+<network-security_config><domain-config cleartextTrafficPermitted="true"><domain includeScudomains="true">10.0.2.2</domain></domain-config></network-security_config>

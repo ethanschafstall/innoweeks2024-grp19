@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import express from 'express';
 import userRoute from './routes/User.mjs';
 import { loginRoute } from './routes/login.mjs';
+import { testRoute } from './routes/Test.mjs';
 import { registerRoute } from './routes/Register.mjs';
 import adminRoute from './routes/Admin.mjs';
 import cors from 'cors'
@@ -28,6 +29,7 @@ app.use('/users', adminRoute);
 app.use('/user', userRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
+app.use('/test', testRoute);
 
 // Define ports for HTTP and HTTPS
 const portHttp = 443;  // Standard HTTP port
