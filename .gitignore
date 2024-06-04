@@ -1,3 +1,9 @@
+# Dev
+openssl/
+initdb.sql
+.env
+superAdminCreds.txt
+
 # Logs
 logs
 *.log

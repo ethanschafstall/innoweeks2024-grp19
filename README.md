@@ -1,8 +1,8 @@
-# PLACEHOLDERNAME
+# Feelings App
 
 ## Overview
 
-**PLACEHOLDERNAME** makes it easy to share your current mood and emotions with friends and family. The app allows you to journal your feelings and visualize them over time.
+**Feelings** makes it easy to share your current mood and emotions with friends and family. The app allows you to journal your feelings and visualize them over time.
 
 ## Features
 
