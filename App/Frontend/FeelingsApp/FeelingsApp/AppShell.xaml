@@ -11,27 +11,33 @@
     Shell.NavBarIsVisible="False"
     Title="FeelingsApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-    <ShellContent 
-        Title="Feelings"
-        Route="Feelings"
-        ContentTemplate="{DataTemplate local:MainPage}"/>
+
     <TabBar>
         <ShellContent Title="Home"
                       Icon="home.png"
                       ContentTemplate="{DataTemplate local:MainPage}"
                       />
-        <ShellContent Title="Friends"
+        <ShellContent Title="Amis"
               Icon="friends.png"
-              ContentTemplate="{DataTemplate local:MainPage}"
+              ContentTemplate="{DataTemplate local:FriendsSite}"
               />
+        <ShellContent Title="Calendrier"
+      Icon="calendar.png"
+      ContentTemplate="{DataTemplate local:Calendar}"
+      />
         <ShellContent Title="User"
               Icon="user.png"
-              ContentTemplate="{DataTemplate local:MainPage}"
+              ContentTemplate="{DataTemplate local:UserSite}"
               />
         
     </TabBar>
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent 
+        Title="FeelingsSite"
+        Route="FeelingsSite"
+        ContentTemplate="{DataTemplate local:FeelingsSite}"/>
 </Shell>

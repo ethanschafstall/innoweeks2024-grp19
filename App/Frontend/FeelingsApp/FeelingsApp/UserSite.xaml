@@ -3,10 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FeelingsApp.UserSite"
              Title="UserSite">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <StackLayout>
+
+        <Grid BackgroundColor="Black" HeightRequest="75" >
+            <Label Text="Utilisateur" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+        </Grid>
+
+        
+        <VerticalStackLayout>
+            <StackLayout Margin="0,50,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Adrian"  FontSize="Title"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Toledo" FontSize="Title"/>
+            </StackLayout>
+
+            <Frame CornerRadius="150"
+       Margin="0,25,0,0" 
+         WidthRequest="275" 
+        HeightRequest="275" 
+        BackgroundColor="YellowGreen"                    
+       >
+
+                <Label 
+            TextColor="White" 
+            Text="😊                      Happy" 
+            Style="{StaticResource Headline}" 
+            SemanticProperties.HeadingLevel="Level1" 
+            FontAttributes="Bold"      
+            VerticalTextAlignment="Center" 
+                    LineBreakMode="WordWrap"
+                    
+        />
+            </Frame>
+
+            <StackLayout Margin="0,25,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="07/09/1999" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="pq17tmn@eduvaud.ch" />
+
+            </StackLayout>
+
+            <Button
+Margin="0,50,0,0" 
+
+x:Name="EditUser"
+Text="Modifier Profil"  
+FontAttributes="Bold"
+BackgroundColor="#3e94eb"
+FontSize="Large"
+WidthRequest="150"
+HorizontalOptions="Fill" 
+>
+            </Button>
+
+        </VerticalStackLayout>
+        
+
+        
+    </StackLayout>
 </ContentPage>
