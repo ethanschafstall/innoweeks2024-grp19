@@ -13,7 +13,7 @@ const connectToDatabaseMiddleware = async (req, res, next) => {
 };
 const router = express.Router();
 
-router.get ('/', connectToDatabaseMiddleware, getAllUsers);
-router.get ('/:username', connectToDatabaseMiddleware, getUsers);
+router.get('/', connectToDatabaseMiddleware, getAllUsers);
+router.get('/:username', connectToDatabaseMiddleware, getUsers);
 
 export default router;
