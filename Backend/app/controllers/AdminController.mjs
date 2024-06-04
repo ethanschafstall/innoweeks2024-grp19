@@ -1,8 +1,5 @@
-import express from "express";
 import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
-
-const router = express.Router();
 
 export const getAllUsers = async (req, res) => {
     const token = req.cookies.authToken;
@@ -102,8 +99,3 @@ export const getUsers = async (req, res) => {
         }
     });
 };
-
-
-router.get('/', getAllUsers);
-
-router.get('/:username', getUsers);

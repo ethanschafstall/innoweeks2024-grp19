@@ -1,8 +1,5 @@
-import express from "express";
 import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
-
-const router = express.Router();
 
 export const getUser = (req, res) => {
     const token = req.cookies.authToken;
@@ -36,9 +33,3 @@ export const getUser = (req, res) => {
     }
 
 };
-
-
-
-router.get('/:username', getUser);
-
-export default router;
