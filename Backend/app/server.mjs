@@ -7,6 +7,7 @@ import userRoute from './routes/User.mjs';
 import { loginRoute } from './routes/login.mjs';
 import { testRoute } from './routes/Test.mjs';
 import { registerRoute } from './routes/Register.mjs';
+import feelingsRoute from './routes/Feelings.mjs';
 import adminRoute from './routes/Admin.mjs';
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
@@ -30,6 +31,7 @@ app.use('/user', userRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 app.use('/test', testRoute);
+app.use('/feeling', feelingsRoute);
 
 // Define ports for HTTP and HTTPS
 const portHttp = 443;  // Standard HTTP port
