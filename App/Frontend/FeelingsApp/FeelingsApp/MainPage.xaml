@@ -18,7 +18,8 @@
 
         <Label
 Margin="0,10,0,0"
-Text="Bienvenue Adrian,                    Comment vous sentez-vous maintenant ? "
+Text="Bienvenue !  
+                                    Comment vous sentez-vous ? "
 Style="{StaticResource Headline}"
 TextColor="White"
 FontSize="Large"
@@ -35,6 +36,7 @@ SemanticProperties.HeadingLevel="Level6" />
                 <TapGestureRecognizer Tapped="OnNavigateToFeelingsSite" />
             </Frame.GestureRecognizers>
                 <Label 
+                            x:Name="myFeelingLabel"
                     TextColor="White" 
                     Text="MyFeeling" 
                     Style="{StaticResource Headline}" 

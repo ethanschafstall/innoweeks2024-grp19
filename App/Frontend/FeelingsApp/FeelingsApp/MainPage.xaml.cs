@@ -9,6 +9,14 @@
             InitializeComponent();
             BindingContext = new FeelingsSite();
         }
+        public MainPage(FeelingsSite.Feeling selectedFeeling)
+        {
+            InitializeComponent();
+            BindingContext = new FeelingsSite();
+            feeling.BackgroundColor = selectedFeeling.Color;
+            myFeelingLabel.Text = selectedFeeling.Name;
+
+        }
 
         //private void OnCounterClicked(object sender, EventArgs e)
         //{

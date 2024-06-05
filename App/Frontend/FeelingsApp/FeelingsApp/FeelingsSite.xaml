@@ -11,15 +11,17 @@
             <Label Text="Feelings" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
         </Grid>
 
-        <CollectionView x:Name="FeelingListView" ItemsSource="{Binding Feelings}">
+        <CollectionView x:Name="FeelingListView" ItemsSource="{Binding Feelings}" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" Padding="10">
                         <BoxView Color="{Binding Color}" WidthRequest="30" HeightRequest="30" CornerRadius="15" BackgroundColor="Transparent" />
-                        <Label Text="{Binding Name}"  HorizontalOptions="CenterAndExpand" Margin="0,0,0,0" />
+                        <Label Text="{Binding Name}"  HorizontalOptions="CenterAndExpand" Margin="10,0,0,0" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button Text="Confirmer" Clicked="OnConfirmClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20" />
+
     </VerticalStackLayout>
 </ContentPage>
