@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FeelingsApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+efbd871cb58393f6a11ab85881a264aefa66c90c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+428e4a168501f41c566de28fc4438d248b5d8807")]
 [assembly: System.Reflection.AssemblyProductAttribute("FeelingsApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FeelingsApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

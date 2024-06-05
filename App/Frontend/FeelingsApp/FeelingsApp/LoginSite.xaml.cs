@@ -4,11 +4,16 @@ using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
+using Android.Media.TV;
 using Microsoft.Maui.Controls;
 using Org.Apache.Http.Client;
 using static Android.Icu.Text.CaseMap;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace FeelingsApp;
 //var response = await client.GetAsync("http://10.0.2.2:3000/epub/1");
@@ -39,8 +44,25 @@ public partial class LoginSite : ContentPage
             if (postResponse.IsSuccessStatusCode)
             {
                 var content = postResponse.Content;
-                var contentS = await postResponse.Content.ReadAsStringAsync();
-                await DisplayAlert("Response", contentS, "OK");
+                var contentString = await postResponse.Content.ReadAsStringAsync();
+
+                var jsonResponse = JsonConvert.DeserializeObject<LoginResponse>(contentString);
+
+                if (jsonResponse != null && !string.IsNullOrEmpty(jsonResponse.Token))
+                {
+                    await SecureStorage.SetAsync("auth_token", jsonResponse.Token);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jsonResponse.Token);
+
+                    await DisplayAlert("Success", jsonResponse.Message, "OK");
+
+                    // Navegar a la página de usuario
+                    await Navigation.PushAsync(new UserSite());
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Failed to deserialize login response or empty token", "OK");
+                }
+
             }
             else
             {
@@ -84,7 +106,6 @@ public partial class LoginSite : ContentPage
         {
             await DisplayAlert(ex.Message, ex.StackTrace, "ok");
             Debug.WriteLine(ex.Message );
-
         }
     }
 
@@ -101,6 +122,7 @@ public partial class LoginSite : ContentPage
     public class LoginResponse
     {
         public string Message { get; set; }
+        public string Token { get; set; }
     }
 }
 //CODE TO TRY
