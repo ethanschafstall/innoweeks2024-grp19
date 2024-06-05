@@ -18,7 +18,7 @@ import adminRoute from './routes/Admin.mjs';
 import { testRoute } from './routes/Test.mjs';
 
 // Middleware
-import { databaseConnectionMiddleware } from "./tools/connectToDatabaseMiddleware.mjs";
+import { databaseConnectionMiddleware } from "./services/connectToDatabase.mjs";
 import cors from 'cors'
 
 // Tools
