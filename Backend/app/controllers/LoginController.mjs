@@ -3,11 +3,11 @@ import { generateToken } from "../tools/createToken.mjs";
 
 // Endpoint for handling user login
 export const postLogin = async(req, res) => {
-  const { username, password } = req.body;
-  const queryString = `SELECT * FROM t_users WHERE useUsername = ?`;
-
+  const { username, password, platform } = req.body;
+  const findUserQueryString = `SELECT * FROM t_users WHERE useUsername = ?`;
+  const updatePlatformQueryString = `UPDATE t_users SET usePlatform = ? WHERE useUsername = ?;`
   try {
-      const [result] = await req.dbConnection.execute(queryString, [username]);
+      const [result] = await req.dbConnection.execute(findUserQueryString, [username]);
       const user = result[0];
 
       if (!user) {
@@ -20,7 +20,7 @@ export const postLogin = async(req, res) => {
       if (storedHash !== checkHash(salt, password)) {
           return res.status(401).json({ message: "Invalid username or password." });
       }
-
+      await req.dbConnection.execute(updatePlatformQueryString, [platform, username]);
       const message = `User has successfully logged in.`;
       const token = generateToken(user);
 
