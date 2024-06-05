@@ -1,12 +1,19 @@
 using System;
 using System.Diagnostics;
 using System.IO.Compression;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
+using Android.Media.TV;
 using Microsoft.Maui.Controls;
+using Org.Apache.Http.Client;
 using static Android.Icu.Text.CaseMap;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace FeelingsApp;
 //var response = await client.GetAsync("http://10.0.2.2:3000/epub/1");
@@ -25,92 +32,89 @@ public partial class LoginSite : ContentPage
 	{
         string username = LoginUserName.Text;
         string password = LoginUserPsw.Text;
-
         try
         {
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://10.0.2.2:443/test");
-            HttpResponseMessage response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
+            var loginRequest = new LoginRequest
             {
+                Username = username,
+                Password = password
+            };
 
-                var content = response.Content;
+            var postResponse = await client.PostAsJsonAsync("http://10.0.2.2:443/login", loginRequest);
+            if (postResponse.IsSuccessStatusCode)
+            {
+                var content = postResponse.Content;
+                var contentString = await postResponse.Content.ReadAsStringAsync();
 
-                Debug.WriteLine(content);
+                var jsonResponse = JsonConvert.DeserializeObject<LoginResponse>(contentString);
+
+                if (jsonResponse != null && !string.IsNullOrEmpty(jsonResponse.Token))
+                {
+                    await SecureStorage.SetAsync("auth_token", jsonResponse.Token);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jsonResponse.Token);
+
+                    await DisplayAlert("Success", jsonResponse.Message, "OK");
+
+                    // Navegar a la página de usuario
+                    await Navigation.PushAsync(new UserSite());
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Failed to deserialize login response or empty token", "OK");
+                }
 
             }
             else
             {
-                throw new Exception($"Bad status : {response.StatusCode}, {response.Headers},{response.Content}");
+                throw new Exception($"Bad status : {postResponse.StatusCode}, {postResponse.Headers},{postResponse.Content}");
             }
         }
         catch (Exception ex)
         {
             await DisplayAlert(ex.Message, ex.StackTrace, "ok");
-            Debug.WriteLine(ex.Message + "ERROOOOOOR");
+            Debug.WriteLine(ex.Message );
 
-        }
-        /*
-        if (!string.IsNullOrEmpty( username) && !string.IsNullOrEmpty(password))
-        {
-            
-            var loginRequest = new LoginRequest
-            {
-                Username = username,
-                Password = password
-
-               
-            };
-            Debug.Print(loginRequest.Username);
-
-            try
-            {
-                var response = await _httpClient.PostAsJsonAsync("http://10.0.2.2:443/login", loginRequest);
-                Debug.Print(response.Content.ToString());
-
-
-                if (response.IsSuccessStatusCode)
-                {
-                    Debug.Print("okok");
-
-                    var loginResponse = await response.Content.ReadFromJsonAsync<LoginResponse>();
-                    Debug.Print("okok");
-
-
-                    if (loginResponse != null && loginResponse.Message == "Estas conectado")
-                    {
-                        
-                        await DisplayAlert("Éxito", loginResponse.Message, "OK");
-                        // Navegar a la página UserSite
-                        await Navigation.PushAsync(new UserSite());
-                    }
-                    else
-                    {
-                        await DisplayAlert("Error", "Respuesta inesperada del servidor", "OK");
-                    }
-                }
-                else
-                {
-                    await DisplayAlert("Error", "No se pudo conectar al servidor", "OK");
-                }
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "OK");
-            }
-        }
-        else
-        {
-            await DisplayAlert("Error", "Usuario y contraseña deben ser números válidos", "OK");
-        }
-            */
+        }        
     }
     private async void OnCreateAccountClicked(object sender, EventArgs e)
 	{
+        string username = CreateUserName.Text;
+        string password = CreateUserPsw.Text;
+        try
+        {
+            var signInRequest = new SignInRequest
+            {
+                Username = username,
+                Password = password
+            };
 
-	}
+            var postResponse = await client.PostAsJsonAsync("http://10.0.2.2:443/register", signInRequest);
+            if (postResponse.IsSuccessStatusCode)
+            {
+
+                var content = postResponse.Content;
+                var contentS = await postResponse.Content.ReadAsStringAsync();
+                await DisplayAlert("Response", contentS, "OK");
+
+            }
+            else
+            {
+                throw new Exception($"Bad status : {postResponse.StatusCode}, {postResponse.Headers},{postResponse.Content}");
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert(ex.Message, ex.StackTrace, "ok");
+            Debug.WriteLine(ex.Message );
+        }
+    }
 
     public class LoginRequest
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+    public class SignInRequest
     {
         public string Username { get; set; }
         public string Password { get; set; }
@@ -118,5 +122,13 @@ public partial class LoginSite : ContentPage
     public class LoginResponse
     {
         public string Message { get; set; }
+        public string Token { get; set; }
     }
 }
+//CODE TO TRY
+//            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://10.0.2.2:443/test");
+//          Debug.WriteLine(request);
+
+//        HttpResponseMessage response = await client.SendAsync(request);
+
+//var response = await client.GetAsync("http://10.0.2.2:443/test"); //WORKS

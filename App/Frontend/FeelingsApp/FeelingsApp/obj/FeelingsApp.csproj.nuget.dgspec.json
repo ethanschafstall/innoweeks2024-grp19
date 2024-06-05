@@ -79,6 +79,10 @@
               "target": "Package",
               "version": "[8.0.7, )"
             },
+            "Microsoft.Maui.Essentials": {
+              "target": "Package",
+              "version": "[8.0.40, )"
+            },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
@@ -125,6 +129,10 @@
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "Microsoft.Maui.Essentials": {
+              "target": "Package",
+              "version": "[8.0.40, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -173,6 +181,10 @@
               "target": "Package",
               "version": "[8.0.7, )"
             },
+            "Microsoft.Maui.Essentials": {
+              "target": "Package",
+              "version": "[8.0.40, )"
+            },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
@@ -220,6 +232,10 @@
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "Microsoft.Maui.Essentials": {
+              "target": "Package",
+              "version": "[8.0.40, )"
             },
             "System.Net.Http.Json": {
               "target": "Package",
