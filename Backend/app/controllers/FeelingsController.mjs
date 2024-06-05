@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
 import { formatDateToSQL } from "../tools/dateFormater.mjs";
+import { notifier } from '../services/notifications/notificationManager.mjs';
 
 export const postFeeling = async (req, res) => {
     const token = req.cookies.authToken;
@@ -29,13 +30,13 @@ export const postFeeling = async (req, res) => {
             }
             return res.status(401).json({ message });
         }
-        const queryString = `INSERT INTO t_feelings (feeMood, feeCreatedAt, userId) VALUES (?,?,?)`;
+        const queryString = `INSERT INTO t_feelings (feeMood, feeCreatedAt, fkUser) VALUES (?,?,?)`;
         const mood = body.mood;
         const timeDate = formatDateToSQL(new Date());
-        const userId = decodedToken.id;
+        const fkUser = decodedToken.id;
         try {
-            const [rows] = await req.dbConnection.execute(queryString, [mood, timeDate, userId]);
-
+            const [rows] = await req.dbConnection.execute(queryString, [mood, timeDate, fkUser]);
+            notifier(fkUser);
             return res.status(200).json({ users: rows });
         } catch (error) {
             console.error("Error fetching users:", error);
