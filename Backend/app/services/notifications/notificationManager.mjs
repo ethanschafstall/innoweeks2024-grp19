@@ -1,7 +1,28 @@
 import { connect } from "../connectToDatabase.mjs";
+import { mqttService } from "./mqttService.mjs";
+import { signalRService } from "./signalRService.mjs";
+import { socketioService } from "./socketIOService.mjs";
 
 export const notifier = async (userId) => {
-    const members = await getMembers(userId);
+
+    const memberIds = await getMembers(userId);
+
+    memberIds.forEach(memberId => {
+        const platform = determinePlatform(memberId);
+        switch (platform) {
+            case 'watch':
+                mqttService.notify(memberId, 'Notification message for watch users');
+                break;
+            case 'mobile':
+                signalRService.notify(memberId, 'Notification message for mobile app users');
+                break;
+            case 'web':
+                socketIOService.notify(memberId, 'Notification message for web users');
+                break;
+            default:
+                console.error(`Unsupported platform for user ${memberId}`);
+        }
+    });
 }
 
 const getMembers = async (userId) => {
