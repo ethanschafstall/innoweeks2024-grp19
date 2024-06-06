@@ -1,9 +1,7 @@
 import express from "express";
-import { get} from "../controllers/UserController.mjs";
-import { connectToDatabase } from "../tools/sqlConnection.mjs";
+import { getUser} from "../controllers/UserController.mjs";
 
 const router = express.Router();
-router.get('/:username', get);
-
+router.get('/:username', getUser);
 
 export default router;

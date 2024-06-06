@@ -1,8 +1,5 @@
-import express from "express";
 import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
-
-const router = express.Router();
 
 export const getAllUsers = async (req, res) => {
     const token = req.cookies.authToken;
@@ -27,8 +24,7 @@ export const getAllUsers = async (req, res) => {
             }
             return res.status(401).json({ message });
         }
-        const userRole = decodedToken.userRole;
-        console.log(decodedToken.userRole)
+        const userRole = decodedToken.role;
         if (userRole !== "admin" && userRole !== "superadmin") {
             const message = `The user is not authorized to access this resource.`;
             return res.status(401).json({ message });
@@ -84,7 +80,7 @@ export const getUsers = async (req, res) => {
             }
             return res.status(401).json({ message });
         }
-        const userRole = decodedToken.userRole;
+        const userRole = decodedToken.role;
 
         if (userRole !== "admin") {
             const message = `The user is not authorized to access this resource.`;
@@ -103,8 +99,3 @@ export const getUsers = async (req, res) => {
         }
     });
 };
-
-
-router.get('/', getAllUsers);
-
-router.get('/:username', getUsers);

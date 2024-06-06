@@ -1,19 +1,8 @@
 import express from "express";
-// import { } from "../controllers/FeelingsController.mjs";
-import { connectToDatabase } from "../tools/sqlConnection.mjs";
+import { postFeeling } from "../controllers/FeelingsController.mjs";
 
-const connectToDatabaseMiddleware = async (req, res, next) => {
-    try {
-      req.dbConnection = await connectToDatabase();
-      next();
-    } catch (error) {
-      console.error("Error connecting to the database:", error);
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-};
 const router = express.Router();
 
-router.get ('/', connectToDatabaseMiddleware, getAllUsers);
-router.get ('/:username', connectToDatabaseMiddleware, getUsers);
+router.post('/',  postFeeling);
 
 export default router;
