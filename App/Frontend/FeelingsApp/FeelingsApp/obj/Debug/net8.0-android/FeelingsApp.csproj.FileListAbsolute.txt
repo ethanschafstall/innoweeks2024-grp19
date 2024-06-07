@@ -1033,6 +1033,8 @@ C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\F
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\resizetizer\r\drawable\add_friend.png
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\resizetizer\r\drawable\calendar.png
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\res\xml\network_security_config.xml
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\Newtonsoft.Json.dll
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\typemaps.x86_64.ll
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\environment.x86_64.ll
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\compressed_assemblies.x86_64.ll
@@ -1042,5 +1044,3 @@ C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\F
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\marshal_methods.x86_64.o
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\jni_remap.x86_64.o
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\app_shared_libraries\x86_64\libxamarin-app.so
-C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\res\xml\network_security_config.xml
-C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\Newtonsoft.Json.dll

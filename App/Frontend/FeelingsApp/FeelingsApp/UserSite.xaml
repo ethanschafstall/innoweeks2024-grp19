@@ -22,12 +22,14 @@
        Margin="0,25,0,0" 
          WidthRequest="275" 
         HeightRequest="275" 
-        BackgroundColor="YellowGreen"                    
+        BackgroundColor="YellowGreen"         
+                   x:Name="myUserColor"
        >
 
                 <Label 
+                    x:Name="myUserFeeling"
             TextColor="White" 
-            Text="😊                      Happy" 
+            Text="{Binding FeelingResponse.Mood}" 
             Style="{StaticResource Headline}" 
             SemanticProperties.HeadingLevel="Level1" 
             FontAttributes="Bold"      
@@ -38,19 +40,17 @@
             </Frame>
 
             <Button
-Margin="0,100,0,0" 
-
-x:Name="Logout"
-Text="Desconnexion"  
-FontAttributes="Bold"
-BackgroundColor="Grey"
-FontSize="Large"
-WidthRequest="150"
-HorizontalOptions="Fill" 
+                Margin="0,100,0,0" 
+                x:Name="Logout"
+                Text="Desconnexion"  
+                FontAttributes="Bold"
+                BackgroundColor="Grey"
+                FontSize="Large"
+                WidthRequest="200"
+                HorizontalOptions="Fill" 
                 BorderColor="White"
                 BorderWidth="3"
-                Clicked="OnLogoutClicked"
-               
+                Clicked="OnLogoutClicked"       
 >
             </Button>
 

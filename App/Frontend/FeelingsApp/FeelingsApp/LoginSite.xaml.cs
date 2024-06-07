@@ -32,7 +32,7 @@ public partial class LoginSite : ContentPage
 	{
         string username = LoginUserName.Text;
         string password = LoginUserPsw.Text;
-        string platform = "Mobile";
+        string platform = "phone";
         try
         {
             var loginRequest = new LoginRequest
@@ -119,7 +119,6 @@ public partial class LoginSite : ContentPage
     {
         public string Username { get; set; }
         public string Password { get; set; }
-
         public string Platform { get; set; }
     }
     public class SignInRequest
