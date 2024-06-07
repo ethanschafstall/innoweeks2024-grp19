@@ -61,13 +61,7 @@ io.on('connection', (socket) => {
 
 
 // Define ports for HTTP and HTTPS
-const portHttp = 443;
-const portHttps = 4433;
-
-// Start the HTTPS server
-server.listen(portHttps, () => {
-  console.log(`Server HTTPS running on https://localhost:${portHttps}`);
-});
+const portHttp = 443; /* */
 
 // Start the HTTP server
 http.createServer(app).listen(portHttp, () => {
