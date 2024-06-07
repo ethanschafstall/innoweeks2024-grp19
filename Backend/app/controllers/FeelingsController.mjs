@@ -34,9 +34,15 @@ export const postFeeling = async (req, res) => {
         const mood = body.mood;
         const timeDate = formatDateToSQL(new Date());
         const fkUser = decodedToken.id;
+
+        const sender = {
+            id: decodedToken.id,
+            username: decodedToken.username,
+            mood: body.mood
+        }
         try {
             const [rows] = await req.dbConnection.execute(queryString, [mood, timeDate, fkUser]);
-            notifier(fkUser);
+            notifier(sender);
             return res.status(200).json({ users: rows });
         } catch (error) {
             console.error("Error fetching users:", error);
