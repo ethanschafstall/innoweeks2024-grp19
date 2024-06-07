@@ -17,14 +17,21 @@ export function checkHash(salt, message) {
   return hash.toString(CryptoJS.enc.Hex);
 }
 
-function addSalt(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length+10) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
+function addSalt(passwordLength) {
+  const desiredSaltLength = 15;
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  
+  let salt = '';
+  for (let i = 0; i < passwordLength; i++) {
+      salt += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  
+  while (salt.length < desiredSaltLength) {
+      salt += salt;
+  }
+  salt = salt.slice(0, desiredSaltLength);
+  
+  return salt;
 }
+
