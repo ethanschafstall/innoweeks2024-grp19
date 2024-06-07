@@ -5,7 +5,6 @@ import fs from 'node:fs';
 import express from 'express';
 
 // Import real-time communication libraries for notifications
-import mqtt from 'mqtt';
 import { Server as SocketIOServer } from 'socket.io';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 
@@ -35,7 +34,6 @@ const options = {
 const app = express();
 const server = https.createServer(options, app)
 
-const mqttClient = mqtt.connect('mqtt://broker.hivemq.com');
 const io = new SocketIOServer(server);
 
 // Apply middleware & tools to app
