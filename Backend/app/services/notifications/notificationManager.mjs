@@ -1,11 +1,11 @@
 import { connect } from "../connectToDatabase.mjs";
 import { mqttService } from "./mqttService.mjs";
-import { signalRService } from "./signalRService.mjs";
+import signalRService from "./signalRService.mjs";
 import { socketioService } from "./socketIOService.mjs";
 import { determinePlatform } from "../../tools/determinePlatform.mjs";
 
-export const notifier = async (userId) => {
-    const memberIds = await getMembers(userId);
+export const notifier = async (sender) => {
+    const memberIds = await getMembers(sender.id);
     if (!memberIds) {
         return;
     }
@@ -13,17 +13,17 @@ export const notifier = async (userId) => {
         try {
             const platform = await determinePlatform(memberId);
             switch (platform) {
-                case 'watch':
-                    mqttService.notify(memberId, 'Notification message for watch users');
-                    console.log("watch notif link works")
+                case 'iot':
+                    mqttService.notify(memberId, sender);
                     break;
                 case 'mobile':
-                    signalRService.notify(memberId, 'Notification message for mobile app users');
-                    console.log("mobile notif link works")
+                    // signalRService.init();
+                    // signalRService.notify(memberId, sender);
+                    // console.log("mobile notif link works")
                     break;
                 case 'web':
-                    socketioService.notify(memberId, 'Notification message for web users');
-                    console.log("web notif link works")
+                    socketioService.notify(memberId, sender);
+                    // console.log("web notif link works")
                     break;
                 default:
                     console.error(`Unsupported platform for user ${memberId}`);
