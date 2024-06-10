@@ -4,11 +4,14 @@ import signalRService from "./signalRService.mjs";
 import { socketioService } from "./socketIOService.mjs";
 import { determinePlatform } from "../../tools/determinePlatform.mjs";
 
+let signalRInitialized = false;
+
 export const notifier = async (sender) => {
     const memberIds = await getMembers(sender.id);
     if (!memberIds) {
         return;
     }
+
     for (const memberId of memberIds) {
         try {
             const platform = await determinePlatform(memberId);
@@ -17,13 +20,14 @@ export const notifier = async (sender) => {
                     mqttService.notify(memberId, sender);
                     break;
                 case 'mobile':
-                    // signalRService.init();
-                    // signalRService.notify(memberId, sender);
-                    // console.log("mobile notif link works")
+                    if (!signalRInitialized) {
+                        signalRService.init();
+                        signalRInitialized = true;
+                    }
+                    signalRService.notify(memberId, sender);
                     break;
                 case 'web':
                     socketioService.notify(memberId, sender);
-                    // console.log("web notif link works")
                     break;
                 default:
                     console.error(`Unsupported platform for user ${memberId}`);
