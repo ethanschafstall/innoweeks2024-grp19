@@ -5,23 +5,30 @@ dotenv.config();
 
 const topic = process.env.MQTT_BASE_TOPIC_STRING;
 const url = process.env.MQTT_URL;
+const mqttUsername = process.env.MQTT_USERNAME;
+const mqttPassword = process.env.MQTT_PASSWORD;
 
 export const mqttService = {
     notify: (memberId, sender) => {
-        const client = mqtt.connect(url);
+        const options = {
+            username: mqttUsername,
+            password: mqttPassword
+        };
+
+        const client = mqtt.connect(url, options);
         client.on('connect', () => {
             console.log('Connected to MQTT broker');
 
             const message = `${sender.username} is feeling ${sender.mood}`;
             const fullTopic = `${topic}${memberId}`;
-            
+
             client.publish(fullTopic, message, (err) => {
                 if (err) {
                     console.error('Failed to publish message', err);
                 } else {
                     console.log(`Message published successfully to ${fullTopic}: ${message}`);
                 }
-                
+
                 client.end();
             });
         });
