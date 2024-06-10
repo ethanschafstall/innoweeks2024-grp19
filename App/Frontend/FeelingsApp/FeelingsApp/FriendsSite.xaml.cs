@@ -20,7 +20,16 @@ public partial class FriendsSite : ContentPage
             };
 
         FriendsListView.ItemsSource = Friends;
+
+
     }
+
+    private async void OnAddFriendButtonClicked(object sender, EventArgs e)
+    {
+        // Navegar a la página FriendFormPage
+        await Navigation.PushAsync(new FriendFormPage());
+    }
+
     public class Friend
     {
         public string Name { get; set; }

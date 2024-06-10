@@ -13,6 +13,9 @@
     <MauiXaml Update="FeelingsSite.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="FriendFormPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="FriendsSite.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

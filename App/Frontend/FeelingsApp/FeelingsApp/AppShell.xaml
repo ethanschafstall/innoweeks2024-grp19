@@ -53,4 +53,9 @@
        Route="UserSite"
        ContentTemplate="{DataTemplate local:UserSite}"
        />
+    <ShellContent 
+   Title="FriendFormPage"
+   Route="FriendFormPage"
+   ContentTemplate="{DataTemplate local:FriendFormPage}"
+   />
 </Shell>

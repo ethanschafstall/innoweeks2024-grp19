@@ -61,21 +61,4 @@ public partial class UserSite : ContentPage
         await Navigation.PushAsync(new LoginSite());
     }
 
-
-
-    private Color GetColorForMood(string mood)
-    {
-        switch (mood)
-        {
-            case "Joie":
-                return Colors.Yellow;
-            case "Colère":
-                return Colors.Red;
-            default:
-                return Colors.Gray;
-        }
-    }
-
-
-
 }

@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
 import { formatDateToSQL } from "../tools/dateFormater.mjs";
 import { notifier } from '../services/notifications/notificationManager.mjs';
-
+import { postFriendsGroup } from './FriendsGroupController.mjs';
 export const postFriends = async (req, res) => {
     const token = req.cookies.authToken;
     const body = req.body;
@@ -12,7 +12,7 @@ export const postFriends = async (req, res) => {
         return res.status(401).json({ message });
     }
 
-    if (!body || !body.groName || !body.userUsername) {
+    if (!body || !body.groName || !body.useUsername) {
         const message = `You did not provide a valid request body, group name, or user username.`;
         return res.status(400).json({ message });
     }
@@ -31,27 +31,15 @@ export const postFriends = async (req, res) => {
             return res.status(401).json({ message });
         }
 
-        const groName = body.groName;
-        const userUsername = body.userUsername;
-        const groupIdQuery = `SELECT groupId FROM t_groups WHERE groName = ?`;
-        const userIdQuery = `SELECT userId FROM t_users WHERE useUsername = ?`;
-
         try {
-            // Obtener el ID del grupo
-            const [groupIdRows] = await req.dbConnection.execute(groupIdQuery, [groName]);
-            if (!groupIdRows || groupIdRows.length === 0) {
-                const message = `The group with the name ${groName} does not exist.`;
-                return res.status(404).json({ message });
-            }
-            const fkGroup = groupIdRows[0].groupId;
+            const groName = body.groName;
+            const useUsername = body.useUsername;
 
-            // Obtener el ID del usuario a partir del nombre de usuario
-            const [userIdRows] = await req.dbConnection.execute(userIdQuery, [userUsername]);
-            if (!userIdRows || userIdRows.length === 0) {
-                const message = `The user with the username ${userUsername} does not exist.`;
-                return res.status(404).json({ message });
-            }
-            const fkUser = userIdRows[0].userId;
+            // Obtener o crear el ID del grupo
+            const fkGroup = await getOrCreateGroupId(req.dbConnection, groName, token);
+
+            // Obtener el ID del usuario
+            const fkUser = await getUserId(req.dbConnection, useUsername);
 
             // Insertar el amigo en t_groups_members
             const insertQuery = `INSERT INTO t_group_members (fkGroup, fkUser) VALUES (?, ?)`;
@@ -64,4 +52,38 @@ export const postFriends = async (req, res) => {
             return res.status(500).json({ error: "Internal Server Error" });
         }
     });
+};
+
+// Función para obtener o crear el ID del grupo
+const getOrCreateGroupId = async (dbConnection, groName, authToken) => {
+    const groupIdQuery = `SELECT groupId FROM t_groups WHERE groName = ?`;
+    let [groupIdRows] = await dbConnection.execute(groupIdQuery, [groName]);
+    
+    if (!groupIdRows || groupIdRows.length === 0) {
+        // Si el grupo no existe, crear uno nuevo usando postFriendsGroup
+        const newGroupRequest = {
+            body: { groName },
+            cookies: { authToken }, // Añadir la cookie authToken
+            dbConnection,
+        };
+        const newGroup = await postFriendsGroup(newGroupRequest);
+        if (!newGroup || !newGroup.groupId) {
+            throw new Error(`Failed to create the group ${groName}.`);
+        }
+        groupIdRows = [{ groupId: newGroup.groupId }];
+    }
+    
+    return groupIdRows[0].groupId;
+};
+
+// Función para obtener el ID del usuario
+const getUserId = async (dbConnection, useUsername) => {
+    const userIdQuery = `SELECT userId FROM t_users WHERE useUsername = ?`;
+    const [userIdRows] = await dbConnection.execute(userIdQuery, [useUsername]);
+    
+    if (!userIdRows || userIdRows.length === 0) {
+        throw new Error(`The user with the username ${useUsername} does not exist.`);
+    }
+    
+    return userIdRows[0].userId;
 };

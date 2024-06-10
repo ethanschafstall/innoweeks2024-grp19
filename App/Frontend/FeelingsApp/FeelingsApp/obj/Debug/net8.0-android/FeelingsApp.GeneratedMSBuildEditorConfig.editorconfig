@@ -40,6 +40,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.FeelingsSite.x
 build_metadata.AdditionalFiles.TargetPath = FeelingsSite.xaml
 build_metadata.AdditionalFiles.RelativePath = FeelingsSite.xaml
 
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/FriendFormPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.FriendFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = FriendFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = FriendFormPage.xaml
+
 [C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/FriendsSite.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.FriendsSite.xaml
