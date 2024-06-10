@@ -89,6 +89,10 @@
               "version": "[8.0.4, )",
               "autoReferenced": true
             },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -143,6 +147,10 @@
               "target": "Package",
               "version": "[8.0.4, )",
               "autoReferenced": true
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -199,6 +207,10 @@
               "version": "[8.0.4, )",
               "autoReferenced": true
             },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -248,6 +260,10 @@
             "Microsoft.Maui.Essentials": {
               "target": "Package",
               "version": "[8.0.40, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

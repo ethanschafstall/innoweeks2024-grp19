@@ -88,39 +88,27 @@ namespace FeelingsApp
                                     FeelingResponse = feelingResponse.Feeling;
                                     feeling.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
 
-                                    //var feelingService = DependencyService.Get<IFeelingService>();
-                                    //feelingService.CurrentFeeling = feelingResponse.Feeling;
+
+                                    await SecureStorage.SetAsync("FeeMood", feelingResponse.Feeling.FeeMood);
+                                    await SecureStorage.SetAsync("BackgroundColorFeeling", feeling.BackgroundColor.ToString());
 
                                     await DisplayAlert("Last Feeling", $"Mood: {feelingResponse.Feeling.FkUser}, CreatedAt: {feelingResponse.Feeling.FeeCreatedAt}", "OK");
                                 }
                             }
-
-
-                            //await DisplayAlert("User ID", $"The user ID is {userId}", "OK");
                         }
-
-                        //await DisplayAlert("Response", contentString, "OK");
                     }
                     else
                     {
                         throw new Exception($"Bad status: {responseUser.StatusCode}");
-
                     }
-
-
                 }
                 catch (Exception ex)
                 {
                     await DisplayAlert(ex.Message, ex.StackTrace, "ok");
-                    myFeelingLabel.Text = "NotwaitingData";
-
                 }
             }
             else
             {
-                //User not connect
-                FeelingResponse.FeeMood = "Not data";
-                myFeelingLabel.Text = "Not Data";
             }
             
         }
@@ -133,8 +121,20 @@ namespace FeelingsApp
                     return Colors.Yellow;
                 case "Colère":
                     return Colors.Red;
+                case "Peur":
+                    return Colors.Violet;
+                case "Tristesse":
+                    return Colors.Blue;
+                case "Surpsie":
+                    return Colors.DarkBlue;
+                case "Dégoût":
+                    return Colors.Gray;
+                case "Honte":
+                    return Colors.DarkMagenta;
+                case "Confiance":
+                    return Colors.Green;
                 default:
-                    return Colors.Gray; 
+                    return Colors.Black;
             }
         }
 

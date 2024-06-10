@@ -16,20 +16,40 @@ public partial class UserSite : ContentPage
     public UserSite()
 	{
 		InitializeComponent();
-        BindingContext = new UserViewModel();
+        BindingContext = this;
 
-        //var feelingService = DependencyService.Get<IFeelingService>();
-        //var feeling = feelingService.CurrentFeeling;
+        _ = RetrieveAndSetFeelingAsync();
 
-        //// Usar el Feeling recuperado
-        //if (feeling != null)
-        //{
-        //    BindingContext = feeling;
-        //    myUserFeeling.Text = feeling.FeeMood;
-        //    myUserColor.BackgroundColor = GetColorForMood(feeling.FeeMood);
 
-        //}
+    }
 
+    private async Task RetrieveAndSetFeelingAsync()
+    {
+        try
+        {
+            var feeMood = await SecureStorage.GetAsync("FeeMood");
+            var backgroundColorString = await SecureStorage.GetAsync("BackgroundColorFeeling");
+           var userNameString= await SecureStorage.GetAsync("username");
+            userName.Text = $"{userNameString} est";
+
+            if (!string.IsNullOrEmpty(feeMood))
+            {
+                myUserFeeling.Text = feeMood;
+            }
+
+            if (!string.IsNullOrEmpty(backgroundColorString))
+            {
+                if (Color.TryParse(backgroundColorString, out Color backgroundColor))
+                {
+                    //myUserColor.Background = backgroundColor;
+                }
+            }
+            //myUserColor.BackgroundColor = GetColorForMood(feeMood);
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Error retrieving data: {ex.Message}", "OK");
+        }
     }
 
 

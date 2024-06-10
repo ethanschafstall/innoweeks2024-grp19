@@ -1044,3 +1044,16 @@ C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\F
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\marshal_methods.x86_64.o
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\jni_remap.x86_64.o
 C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\app_shared_libraries\x86_64\libxamarin-app.so
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\BouncyCastle.Cryptography.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\Google.Protobuf.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\Google.Protobuf.pdb
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\K4os.Compression.LZ4.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\K4os.Compression.LZ4.Streams.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\K4os.Hash.xxHash.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\MySql.Data.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\System.Configuration.ConfigurationManager.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\System.Drawing.Common.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\System.IO.Pipelines.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\System.Security.Permissions.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\System.Windows.Extensions.dll
+C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-android\android\assets\ZstdSharp.dll

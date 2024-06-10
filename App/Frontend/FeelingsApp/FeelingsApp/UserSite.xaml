@@ -15,18 +15,10 @@
         
         <VerticalStackLayout>
             <StackLayout Margin="0,75,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Label Text="{Binding Username}"  FontSize="Title" TextColor="White"/>
+                <Label Text="{Binding Username}"  FontSize="Title" TextColor="White" x:Name="userName"/>
             </StackLayout>
 
-            <Frame CornerRadius="150"
-       Margin="0,25,0,0" 
-         WidthRequest="275" 
-        HeightRequest="275" 
-        BackgroundColor="YellowGreen"         
-                   x:Name="myUserColor"
-       >
-
-                <Label 
+            <Label 
                     x:Name="myUserFeeling"
             TextColor="White" 
             Text="{Binding FeelingResponse.Mood}" 
@@ -37,7 +29,6 @@
                     LineBreakMode="WordWrap"
                     
         />
-            </Frame>
 
             <Button
                 Margin="0,100,0,0" 
