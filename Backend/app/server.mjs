@@ -6,7 +6,6 @@ import express from 'express';
 
 // Import real-time communication libraries for notifications
 import { Server as SocketIOServer } from 'socket.io';
-import { HubConnectionBuilder } from '@microsoft/signalr';
 
 // Import routes 
 import userRoute from './routes/User.mjs';
@@ -51,13 +50,13 @@ app.use('/register', registerRoute);
 app.use('/test', testRoute);
 app.use('/feeling', feelingsRoute);
 
-// socket.io connection handling
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-});
+// socket.io connection handling NOT USED
+// io.on('connection', (socket) => {
+//   console.log('a user connected');
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected');
+//   });
+// });
 
 
 // Define ports for HTTP and HTTPS
