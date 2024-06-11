@@ -14,23 +14,19 @@
 
         
         <VerticalStackLayout>
+
             <StackLayout Margin="0,50,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label Text="Adrian"  FontSize="Title"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label Text="Toledo" FontSize="Title"/>
+
             </StackLayout>
 
-            <Frame CornerRadius="150"
-       Margin="0,25,0,0" 
-         WidthRequest="275" 
-        HeightRequest="275" 
-        BackgroundColor="YellowGreen"                    
-       >
-
-                <Label 
+            <Label 
+                    x:Name="myUserFeeling"
             TextColor="White" 
-            Text="😊                      Happy" 
+            Text="{Binding FeelingResponse.Mood}" 
             Style="{StaticResource Headline}" 
             SemanticProperties.HeadingLevel="Level1" 
             FontAttributes="Bold"      
@@ -38,7 +34,7 @@
                     LineBreakMode="WordWrap"
                     
         />
-            </Frame>
+
 
             <StackLayout Margin="0,25,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label Text="07/09/1999" />

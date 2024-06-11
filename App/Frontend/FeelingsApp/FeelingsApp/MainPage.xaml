@@ -18,7 +18,8 @@
 
         <Label
 Margin="0,10,0,0"
-Text="Bienvenue Adrian,                    Comment vous sentez-vous maintenant ? "
+Text="Bienvenue !  
+                                    Comment vous sentez-vous ? "
 Style="{StaticResource Headline}"
 TextColor="White"
 FontSize="Large"
@@ -35,8 +36,9 @@ SemanticProperties.HeadingLevel="Level6" />
                 <TapGestureRecognizer Tapped="OnNavigateToFeelingsSite" />
             </Frame.GestureRecognizers>
                 <Label 
+                            x:Name="myFeelingLabel"
                     TextColor="White" 
-                    Text="MyFeeling" 
+                    Text="{Binding FeelingResponse.Mood}" 
                     Style="{StaticResource Headline}" 
                     SemanticProperties.HeadingLevel="Level1" 
                     FontAttributes="Bold"      
@@ -48,13 +50,13 @@ SemanticProperties.HeadingLevel="Level6" />
             Margin="0,50,0,0" 
 
             x:Name="Share"
-            Text="Partager"  
+            Text="Synchroniser"  
             FontAttributes="Bold"
             BackgroundColor="#3e94eb"
             FontSize="Large"
-            WidthRequest="150"
+            WidthRequest="200"
             HorizontalOptions="Fill"
-                Clicked="OnNavigateToFeelingsSite"
+                Clicked="GetColors"
             >
             </Button>
 

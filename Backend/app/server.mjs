@@ -5,7 +5,9 @@ import fs from 'node:fs';
 import express from 'express';
 
 // Import real-time communication libraries for notifications
+import mqtt from 'mqtt';
 import { Server as SocketIOServer } from 'socket.io';
+import { HubConnectionBuilder } from '@microsoft/signalr';
 
 // Import routes 
 import userRoute from './routes/User.mjs';
@@ -14,6 +16,9 @@ import feelingsRoute from './routes/Feelings.mjs';
 import loginRoute from './routes/Login.mjs';
 import adminRoute from './routes/Admin.mjs';
 import { testRoute } from './routes/Test.mjs';
+import friendsGroupRoute from './routes/FriendsGroup.mjs';
+import friendsRoute from './routes/Friends.mjs';
+
 
 // Middleware
 import { databaseConnectionMiddleware } from "./services/connectToDatabase.mjs";
@@ -33,6 +38,7 @@ const options = {
 const app = express();
 const server = https.createServer(options, app)
 
+const mqttClient = mqtt.connect('mqtt://broker.hivemq.com');
 const io = new SocketIOServer(server);
 
 // Apply middleware & tools to app
@@ -49,18 +55,27 @@ app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 app.use('/test', testRoute);
 app.use('/feeling', feelingsRoute);
+app.use('/friendsGroup', friendsGroupRoute)
+app.use('/friend', friendsRoute)
 
-// socket.io connection handling NOT USED
-// io.on('connection', (socket) => {
-//   console.log('a user connected');
-//   socket.on('disconnect', () => {
-//     console.log('user disconnected');
-//   });
-// });
+
+// socket.io connection handling
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
 
 
 // Define ports for HTTP and HTTPS
-const portHttp = 443; /* */
+const portHttp = 443;
+const portHttps = 4433;
+
+// Start the HTTPS server
+server.listen(portHttps, () => {
+  console.log(`Server HTTPS running on https://localhost:${portHttps}`);
+});
 
 // Start the HTTP server
 http.createServer(app).listen(portHttp, () => {

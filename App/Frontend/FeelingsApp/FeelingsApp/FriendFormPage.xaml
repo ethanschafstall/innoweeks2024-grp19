@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FeelingsApp.FriendFormPage"
+             BackgroundColor="#242c3c" 
+             Title="FriendFormPage">
+    <VerticalStackLayout>
+        <Grid BackgroundColor="Black" HeightRequest="75">
+            <Label Text="Add Friend" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+
+        <StackLayout Padding="30" Spacing="20">
+
+            
+            <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
+                <Entry x:Name="UsernameEntry" Placeholder="Enter username" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
+            </Frame>
+            <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
+                <Entry x:Name="GroupNameEntry" Placeholder="Enter group name" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
+            </Frame>
+            <Button Text="Add Friend" Clicked="OnAddFriendButtonClicked" BackgroundColor="Black" TextColor="White" CornerRadius="25" BorderColor="DimGray" BorderWidth="3" />
+
+        </StackLayout>
+
+    </VerticalStackLayout>
+
+
+</ContentPage>

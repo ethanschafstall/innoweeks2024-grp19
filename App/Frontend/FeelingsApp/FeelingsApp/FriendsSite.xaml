@@ -7,7 +7,7 @@
     <VerticalStackLayout>
         <Grid BackgroundColor="Black" HeightRequest="75" >
             <Label Text="Amis" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
-            <Button  ImageSource="add_friend.png"  BackgroundColor="Transparent" TextColor="White" HorizontalOptions="End" VerticalOptions="Center"  />
+            <Button  ImageSource="add_friend.png"  BackgroundColor="Transparent" TextColor="White" HorizontalOptions="End" VerticalOptions="Center"   Clicked="OnAddFriendButtonClicked"/>
         </Grid>
         
         <ListView x:Name="FriendsListView" HasUnevenRows="true">

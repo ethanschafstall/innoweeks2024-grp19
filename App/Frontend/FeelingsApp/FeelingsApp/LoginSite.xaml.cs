@@ -32,6 +32,7 @@ public partial class LoginSite : ContentPage
 	{
         string username = LoginUserName.Text;
         string password = LoginUserPsw.Text;
+        string platform = "Mobile";
         try
         {
             var loginRequest = new LoginRequest
@@ -55,7 +56,7 @@ public partial class LoginSite : ContentPage
 
                     await DisplayAlert("Success", jsonResponse.Message, "OK");
 
-                    // Navegar a la página de usuario
+                    // Navegar a la pï¿½gina de usuario
                     await Navigation.PushAsync(new UserSite());
                 }
                 else
@@ -113,6 +114,8 @@ public partial class LoginSite : ContentPage
     {
         public string Username { get; set; }
         public string Password { get; set; }
+
+        public string Platform { get; set; }
     }
     public class SignInRequest
     {

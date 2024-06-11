@@ -27,8 +27,15 @@
       />
         <ShellContent Title="Connexion"
               Icon="user.png"
+              IsVisible="{Binding IsNotConnect }"
               ContentTemplate="{DataTemplate local:LoginSite}"
               />
+        <ShellContent 
+            IsVisible="{Binding IsUserConnect}"
+            Title="User"
+      Icon="user.png"
+      ContentTemplate="{DataTemplate local:UserSite}"
+      />
         
         
     </TabBar>
@@ -46,4 +53,9 @@
        Route="UserSite"
        ContentTemplate="{DataTemplate local:UserSite}"
        />
+    <ShellContent 
+   Title="FriendFormPage"
+   Route="FriendFormPage"
+   ContentTemplate="{DataTemplate local:FriendFormPage}"
+   />
 </Shell>

@@ -9,6 +9,7 @@ export const postLogin = async(req, res) => {
   try {
       const [result] = await req.dbConnection.execute(findUserQueryString, [username]);
       const user = result[0];
+
       if (!user) {
           return res.status(401).json({ message: "Invalid username or password." });
       }
@@ -22,16 +23,15 @@ export const postLogin = async(req, res) => {
       await req.dbConnection.execute(updatePlatformQueryString, [platform, username]);
       const message = `User has successfully logged in.`;
       const token = generateToken(user);
-      const body = {
-        httpOnly: true, // Accessible only by web server
-        secure: true, // Ensures the cookie is only sent over HTTPS
-        sameSite: 'strict', // Ensures the cookie is sent only to the same site
-        maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 24 hours
-        path: '/',
-    }
+
+      res.cookie('authToken', token, {
+          httpOnly: true, // Accessible only by web server
+          secure: true, // Ensures the cookie is only sent over HTTPS
+          sameSite: 'strict', // Ensures the cookie is sent only to the same site
+          maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 24 hours
+          path: '/'
+      });
     
-    res.cookie('authToken', token, body);
-      
       return res.status(200).json({ message, token});
   } catch (error) {
       console.error("Error logging in:", error);
