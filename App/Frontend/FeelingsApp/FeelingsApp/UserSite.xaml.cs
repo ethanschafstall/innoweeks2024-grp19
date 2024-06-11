@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using FeelingsApp.ViewModel;
 using Microsoft.Maui.Controls;
-using Newtonsoft.Json;
 
 namespace FeelingsApp;
 
@@ -16,42 +15,13 @@ public partial class UserSite : ContentPage
     public UserSite()
 	{
 		InitializeComponent();
-        BindingContext = this;
+        BindingContext = new UserViewModel();
 
-        _ = RetrieveAndSetFeelingAsync();
-
-
-    }
-
-    private async Task RetrieveAndSetFeelingAsync()
+	}
+    private async void GetDataUser()
     {
-        try
-        {
-            var feeMood = await SecureStorage.GetAsync("FeeMood");
-            var backgroundColorString = await SecureStorage.GetAsync("BackgroundColorFeeling");
-           var userNameString= await SecureStorage.GetAsync("username");
-            userName.Text = $"{userNameString} est";
-
-            if (!string.IsNullOrEmpty(feeMood))
-            {
-                myUserFeeling.Text = feeMood;
-            }
-
-            if (!string.IsNullOrEmpty(backgroundColorString))
-            {
-                if (Color.TryParse(backgroundColorString, out Color backgroundColor))
-                {
-                    //myUserColor.Background = backgroundColor;
-                }
-            }
-            //myUserColor.BackgroundColor = GetColorForMood(feeMood);
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Error", $"Error retrieving data: {ex.Message}", "OK");
-        }
+        //string username = await SecureStorage.GetAsync("username");
     }
-
 
     private async void OnLogoutClicked(object sender, EventArgs e)
     {
@@ -60,5 +30,14 @@ public partial class UserSite : ContentPage
 
         await Navigation.PushAsync(new LoginSite());
     }
+    /*
+     *Content = new StackLayout
+           {
+               Children = {
+                   new Label { Text = $"{username}" },
+               }
+           };
+
+       }*/
 
 }

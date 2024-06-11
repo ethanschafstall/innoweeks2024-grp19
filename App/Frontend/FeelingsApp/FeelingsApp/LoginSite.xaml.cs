@@ -32,14 +32,13 @@ public partial class LoginSite : ContentPage
 	{
         string username = LoginUserName.Text;
         string password = LoginUserPsw.Text;
-        string platform = "phone";
+        string platform = "Mobile";
         try
         {
             var loginRequest = new LoginRequest
             {
                 Username = username,
-                Password = password,
-                Platform = platform
+                Password = password
             };
 
             var postResponse = await client.PostAsJsonAsync("http://10.0.2.2:443/login", loginRequest);
@@ -53,15 +52,11 @@ public partial class LoginSite : ContentPage
                 if (jsonResponse != null && !string.IsNullOrEmpty(jsonResponse.Token))
                 {
                     await SecureStorage.SetAsync("auth_token", jsonResponse.Token);
-                    await SecureStorage.SetAsync("username", username);
-
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jsonResponse.Token);
 
                     await DisplayAlert("Success", jsonResponse.Message, "OK");
 
-
-
-                    // Navegar a la página de usuario
+                    // Navegar a la pï¿½gina de usuario
                     await Navigation.PushAsync(new UserSite());
                 }
                 else
@@ -119,6 +114,7 @@ public partial class LoginSite : ContentPage
     {
         public string Username { get; set; }
         public string Password { get; set; }
+
         public string Platform { get; set; }
     }
     public class SignInRequest

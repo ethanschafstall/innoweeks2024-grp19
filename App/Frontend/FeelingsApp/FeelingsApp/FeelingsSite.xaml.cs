@@ -18,11 +18,11 @@ public partial class FeelingsSite : ContentPage
         Feelings = new ObservableCollection<Feeling>
             {
                 new Feeling { Name = "Joie", Color = Colors.Yellow},
-                new Feeling { Name = "Colère",  Color =  Colors.Red},
+                new Feeling { Name = "Colï¿½re",  Color =  Colors.Red},
                 new Feeling { Name = "Peur",  Color =  Colors.Violet},
                 new Feeling { Name = "Tristesse",  Color =  Colors.Blue},
                 new Feeling { Name = "Surpsie",  Color =  Colors.DarkBlue},
-                new Feeling { Name = "Dégoût",  Color =  Colors.Gray},
+                new Feeling { Name = "Dï¿½goï¿½t",  Color =  Colors.Gray},
                 new Feeling { Name = "Honte",  Color =  Colors.DarkMagenta},                
                 new Feeling { Name = "Confiance",  Color =  Colors.Green},
             };
@@ -58,7 +58,7 @@ public partial class FeelingsSite : ContentPage
 
             if (response.IsSuccessStatusCode)
             {
-                // Navegar a la siguiente página y pasar el sentimiento seleccionado
+                // Navegar a la siguiente pï¿½gina y pasar el sentimiento seleccionado
                 await Navigation.PushAsync(new MainPage(selectedFeeling));
             }
             else
