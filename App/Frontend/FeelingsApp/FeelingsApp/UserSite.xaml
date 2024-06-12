@@ -14,13 +14,8 @@
 
         
         <VerticalStackLayout>
-
-            <StackLayout Margin="0,50,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Label Text="Adrian"  FontSize="Title"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Label Text="Toledo" FontSize="Title"/>
-
+            <StackLayout Margin="0,75,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding Username}"  FontSize="Title" TextColor="White" x:Name="userName"/>
             </StackLayout>
 
             <Label 
@@ -35,26 +30,18 @@
                     
         />
 
-
-            <StackLayout Margin="0,25,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Label Text="07/09/1999" />
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Label Text="pq17tmn@eduvaud.ch" />
-
-            </StackLayout>
-
             <Button
-Margin="0,50,0,0" 
-
-x:Name="EditUser"
-Text="Modifier Profil"  
-FontAttributes="Bold"
-BackgroundColor="#3e94eb"
-FontSize="Large"
-WidthRequest="150"
-HorizontalOptions="Fill" 
+                Margin="0,100,0,0" 
+                x:Name="Logout"
+                Text="Desconnexion"  
+                FontAttributes="Bold"
+                BackgroundColor="Grey"
+                FontSize="Large"
+                WidthRequest="200"
+                HorizontalOptions="Fill" 
+                BorderColor="White"
+                BorderWidth="3"
+                Clicked="OnLogoutClicked"       
 >
             </Button>
 
