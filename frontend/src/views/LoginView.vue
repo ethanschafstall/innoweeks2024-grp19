@@ -31,7 +31,7 @@ export default {
             {
               username: username,
               password: password,
-              platform: 'mobile'
+              platform: 'web'
             },
             {
               withCredentials: true
