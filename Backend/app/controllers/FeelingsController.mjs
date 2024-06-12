@@ -42,6 +42,7 @@ export const postFeeling = async (req, res) => {
         }
         try {
             const [rows] = await req.dbConnection.execute(queryString, [mood, timeDate, fkUser]);
+            console.log(`user: ${decodedToken.username} has posted "${mood}"`)
             notifier(sender);
             return res.status(200).json({ users: rows });
         } catch (error) {
