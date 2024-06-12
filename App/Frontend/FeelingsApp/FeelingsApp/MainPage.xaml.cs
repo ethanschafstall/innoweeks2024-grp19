@@ -52,7 +52,7 @@ namespace FeelingsApp
             if (!string.IsNullOrEmpty(username))
             {
                 //User connect
-                var request = new HttpRequestMessage(HttpMethod.Get, $"http://10.0.2.2:443/user/{username}");
+                var request = new HttpRequestMessage(HttpMethod.Get, $"https://feelings.blue.section-inf.ch/user/{username}");
                 request.Headers.Add("Cookie", $"authToken = {authToken}");
                 //myFeelingLabel.Text = "waitingUser";
 
@@ -71,7 +71,7 @@ namespace FeelingsApp
                         {
                             int userId = userResponse.DecodedToken.Id;
 
-                            var requestFeeling = new HttpRequestMessage(HttpMethod.Get, "http://10.0.2.2:443/feeling/3/last");
+                            var requestFeeling = new HttpRequestMessage(HttpMethod.Get, "https://feelings.blue.section-inf.ch/feeling/3/last");
                             requestFeeling.Headers.Add("Cookie", $"authToken={authToken}");
 
                             var responseFeeling = await client.SendAsync(requestFeeling);

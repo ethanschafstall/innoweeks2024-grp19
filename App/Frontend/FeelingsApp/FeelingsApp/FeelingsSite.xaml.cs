@@ -54,7 +54,7 @@ public partial class FeelingsSite : ContentPage
 
             // Enviar la solicitud POST
             client.DefaultRequestHeaders.Add("Cookie", $"authToken={authToken}");
-            var response = await client.PostAsJsonAsync("http://10.0.2.2:443/feeling", feelingRequest);
+            var response = await client.PostAsJsonAsync("https://feelings.blue.section-inf.ch/feeling", feelingRequest);
 
             if (response.IsSuccessStatusCode)
             {

@@ -54,7 +54,7 @@ namespace FeelingsApp
 
             // Enviar la solicitud POST para agregar el amigo
             client.DefaultRequestHeaders.Add("Cookie", $"authToken={authToken}");
-            var response = await client.PostAsJsonAsync("http://10.0.2.2:443/friend", requestBody);
+            var response = await client.PostAsJsonAsync("https://feelings.blue.section-inf.ch/friend", requestBody);
 
             if (response.IsSuccessStatusCode)
             {
@@ -63,7 +63,7 @@ namespace FeelingsApp
             else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
             {
                 // En caso de conflicto, intentar agregar al amigo al grupo
-                var responseForGroup = await client.PostAsJsonAsync("http://10.0.2.2:443/friend", requestBody);
+                var responseForGroup = await client.PostAsJsonAsync("https://feelings.blue.section-inf.ch/friend", requestBody);
 
                 if (responseForGroup.IsSuccessStatusCode)
                 {

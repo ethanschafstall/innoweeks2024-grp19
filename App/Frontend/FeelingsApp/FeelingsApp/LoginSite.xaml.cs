@@ -42,7 +42,7 @@ public partial class LoginSite : ContentPage
                 Platform = platform
             };
 
-            var postResponse = await client.PostAsJsonAsync("http://10.0.2.2:443/login", loginRequest);
+            var postResponse = await client.PostAsJsonAsync("https://feelings.blue.section-inf.ch/login", loginRequest);
             if (postResponse.IsSuccessStatusCode)
             {
                 var content = postResponse.Content;
@@ -94,7 +94,7 @@ public partial class LoginSite : ContentPage
                 Password = password
             };
 
-            var postResponse = await client.PostAsJsonAsync("http://10.0.2.2:443/register", signInRequest);
+            var postResponse = await client.PostAsJsonAsync("https://feelings.blue.section-inf.ch/register", signInRequest);
             if (postResponse.IsSuccessStatusCode)
             {
 
@@ -132,10 +132,3 @@ public partial class LoginSite : ContentPage
         public string Token { get; set; }
     }
 }
-//CODE TO TRY
-//            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://10.0.2.2:443/test");
-//          Debug.WriteLine(request);
-
-//        HttpResponseMessage response = await client.SendAsync(request);
-
-//var response = await client.GetAsync("http://10.0.2.2:443/test"); //WORKS
