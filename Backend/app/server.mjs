@@ -8,7 +8,6 @@ import registerRoute from './routes/Register.mjs';
 import feelingsRoute from './routes/Feelings.mjs';
 import loginRoute from './routes/Login.mjs';
 import adminRoute from './routes/Admin.mjs';
-import { testRoute } from './routes/Test.mjs';
 import friendsGroupRoute from './routes/FriendsGroup.mjs';
 import friendsRoute from './routes/Friends.mjs';
 
@@ -36,7 +35,6 @@ app.use('/users', adminRoute);
 app.use('/user', userRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
-app.use('/test', testRoute);
 app.use('/feeling', feelingsRoute);
 app.use('/friendsGroup', friendsGroupRoute)
 app.use('/friend', friendsRoute)
