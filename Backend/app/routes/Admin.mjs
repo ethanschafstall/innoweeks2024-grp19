@@ -3,7 +3,7 @@ import { getAllUsers, getUsers } from "../controllers/AdminController.mjs";
 
 const router = express.Router();
 
-router.get('/', getAllUsers);
+router.get('/users', getAllUsers);
 router.get('/:username', getUsers);
 
 export default router;
