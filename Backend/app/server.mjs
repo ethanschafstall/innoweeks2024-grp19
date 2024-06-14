@@ -42,7 +42,7 @@ app.use('/groups', friendsGroupRoute)
 app.use('/friends', friendsRoute)
 
 // Define ports for HTTP and HTTPS
-const portHttp = 443;
+const portHttp = 8080;
 
 // Start the HTTP server
 http.createServer(app).listen(portHttp, () => {
