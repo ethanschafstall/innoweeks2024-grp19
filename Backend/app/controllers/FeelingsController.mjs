@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
 import { formatDateToSQL } from "../tools/dateFormater.mjs";
-import { notifier } from '../services/notifications/notificationManager.mjs';
 
 export const postFeeling = async (req, res) => {
     const token = req.cookies.authToken;
@@ -30,16 +29,9 @@ export const postFeeling = async (req, res) => {
         const mood = body.mood;
         const timeDate = formatDateToSQL(new Date());
         const fkUser = decodedToken.id;
-
-        const sender = {
-            id: decodedToken.id,
-            username: decodedToken.username,
-            mood: body.mood
-        }
         try {
             const [rows] = await req.dbConnection.execute(queryString, [mood, timeDate, fkUser]);
-            console.log(`user: ${decodedToken.username} has posted "${mood}"`)
-            // notifier(sender);
+            console.log(`${decodedToken.username} is feelings "${mood}"`)
             return res.status(200).json({ users: rows });
         } catch (error) {
             console.error("Error fetching users:", error);

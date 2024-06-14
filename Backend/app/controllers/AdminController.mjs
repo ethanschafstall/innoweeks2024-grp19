@@ -40,7 +40,6 @@ export const getAllUsers = async (req, res) => {
 
 export const getUsers = async (req, res) => {
     const token = req.cookies.authToken;
-
     // Checking if token exists
     if (!token) {
         // If token is missing, return 401 Unauthorized status
@@ -76,8 +75,7 @@ export const getUsers = async (req, res) => {
             return res.status(401).json({ message });
         }
         const userRole = decodedToken.role;
-
-        if (userRole !== "admin") {
+        if (userRole !== "admin" &&  userRole !== "superadmin") {
             const message = `The user is not authorized to access this resource.`;
             return res.status(401).json({ message });
         }

@@ -1,20 +1,17 @@
-import { checkHash } from "../tools/hash.mjs";
+import { authentication } from "../tools/hash.mjs";
 import { generateToken } from "../tools/createToken.mjs";
+import { formatDateToSQL } from "../tools/dateFormater.mjs";
 
 // Endpoint for handling user login
 export const postLogin = async(req, res) => {
-  const { username, password, platform } = req.body;
+  const { username, password } = req.body;
   const findUserQueryString = `SELECT * FROM t_users WHERE useUsername = ?`;
-  const updatePlatformQueryString = `UPDATE t_users SET usePlatform = ? WHERE useUsername = ?;`
 
      if (!username) {
         return res.status(401).json({ message: "You did not provide a username." });
     }
     if (!password) {
         return res.status(401).json({ message: "You did not provide a password." });
-    }
-    if (!platform) {
-        return res.status(401).json({ message: "You did not provide a platform." });
     }
 
   try {
@@ -26,13 +23,14 @@ export const postLogin = async(req, res) => {
       }
 
       const salt = user.useSalt;
-      const storedHash = user.usePassword;
+      const expectedHash = authentication(password, salt)
 
-      if (storedHash !== checkHash(salt, password)) {
+      if (user.usePassword != expectedHash) {
           return res.status(401).json({ message: "Invalid username or password." });
       }
-      await req.dbConnection.execute(updatePlatformQueryString, [platform, username]);
+
       const message = `User has successfully logged in.`;
+      
       const token = generateToken(user);
 
       res.cookie('authToken', token, {
@@ -42,7 +40,7 @@ export const postLogin = async(req, res) => {
           maxAge: 24 * 60 * 60 * 1000, // Cookie expires in 24 hours
           path: '/'
       });
-    
+      console.log(`${username} signed into their account at ${formatDateToSQL(new Date())}`)
       return res.status(200).json({ message, token});
   } catch (error) {
       console.error("Error logging in:", error);
