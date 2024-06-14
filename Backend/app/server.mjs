@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 // Define routes
-app.use('/users', adminRoute);
+app.use('/admin', adminRoute);
 app.use('/user', userRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
