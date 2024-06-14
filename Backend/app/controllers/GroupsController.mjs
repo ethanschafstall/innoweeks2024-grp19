@@ -45,7 +45,6 @@ export const postFriendsGroup = async (req, res) => {
 
 export const getGroups = async (req, res) => {
     const token = req.cookies.authToken;
-
     if (!token) {
         return res.status(401).json({ message: "You did not provide an authentication token." });
     }
@@ -58,15 +57,16 @@ export const getGroups = async (req, res) => {
                 : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
-
+        const id = decodedToken.id;
+        const username = decodedToken.username;
         try {
             const getGroupsQuery = `SELECT * FROM t_groups WHERE fkUser = ?`;
-            const [groups] = await req.dbConnection.execute(getGroupsQuery, [decodedToken.id]);
+            const [groups] = await req.dbConnection.execute(getGroupsQuery, [id]);
             console.log(groups)
             if (groups.length < 0) {
                 return res.status(400).json({ message: `The user hasn't created any groups` });
             }
-
+            console.log(`${username} is apart of these groups:`)
             console.table(groups)
             return res.status(200).json({ groups: groups });
         } catch (error) {

@@ -69,7 +69,7 @@ export const getFriendsFeelings = async (req, res) => {
         }
 
         const userId = decodedToken.id;
-
+        const username = decodedToken.username
         try {
             // First query to get the group owners where the authenticated user is a member
             const groupOwnersQuery = `
@@ -104,7 +104,7 @@ export const getFriendsFeelings = async (req, res) => {
             }
 
             if (feelings.length > 0) {
-                console.log(`${decodedToken.useUsername} got feelings of their friends`)
+                console.log(`${username} got feelings of their friends`)
                 console.table(feelings)
                 return res.status(200).json({ feelings });
             } else {
