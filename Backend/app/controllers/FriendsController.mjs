@@ -104,10 +104,13 @@ export const getFriendsFeelings = async (req, res) => {
             }
 
             if (feelings.length > 0) {
+                console.log(`${decodedToken.useUsername} got feelings of their friends`)
+                console.table(feelings)
                 return res.status(200).json({ feelings });
             } else {
                 return res.status(404).json({ message: "No feelings found for the specified users." });
             }
+
         } catch (error) {
             console.error("Error fetching feelings:", error);
             return res.status(500).json({ error: "Internal Server Error" });
