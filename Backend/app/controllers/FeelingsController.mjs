@@ -19,17 +19,13 @@ export const postFeeling = async (req, res) => {
     }
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
-            console.log(error);
-            let message;
-            if (error.name === 'TokenExpiredError') {
-                message = `Your session has expired. Please log in again.`;
-            } else if (error.name === 'JsonWebTokenError') {
-                message = `The request is invalid. Please check your login details.`;
-            } else {
-                message = `The user is not authorized to access this resource.`;
-            }
+            console.error("JWT Verification Error:", error);
+            const message = error.name === 'TokenExpiredError'
+                ? "Your session has expired. Please log in again."
+                : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
+
         const queryString = `INSERT INTO t_feelings (feeMood, feeCreatedAt, fkUser) VALUES (?,?,?)`;
         const mood = body.mood;
         const timeDate = formatDateToSQL(new Date());
@@ -43,7 +39,7 @@ export const postFeeling = async (req, res) => {
         try {
             const [rows] = await req.dbConnection.execute(queryString, [mood, timeDate, fkUser]);
             console.log(`user: ${decodedToken.username} has posted "${mood}"`)
-            notifier(sender);
+            // notifier(sender);
             return res.status(200).json({ users: rows });
         } catch (error) {
             console.error("Error fetching users:", error);
@@ -64,15 +60,10 @@ export const getFeelingsByUserId = async (req, res) => {
 
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
-            console.log(error);
-            let message;
-            if (error.name === 'TokenExpiredError') {
-                message = `Your session has expired. Please log in again.`;
-            } else if (error.name === 'JsonWebTokenError') {
-                message = `The request is invalid. Please check your login details.`;
-            } else {
-                message = `The user is not authorized to access this resource.`;
-            }
+            console.error("JWT Verification Error:", error);
+            const message = error.name === 'TokenExpiredError'
+                ? "Your session has expired. Please log in again."
+                : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
 
@@ -98,15 +89,10 @@ export const getLastFeelingByUserId = async (req, res) => {
 
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
-            console.log(error);
-            let message;
-            if (error.name === 'TokenExpiredError') {
-                message = `Your session has expired. Please log in again.`;
-            } else if (error.name === 'JsonWebTokenError') {
-                message = `The request is invalid. Please check your login details.`;
-            } else {
-                message = `The user is not authorized to access this resource.`;
-            }
+            console.error("JWT Verification Error:", error);
+            const message = error.name === 'TokenExpiredError'
+                ? "Your session has expired. Please log in again."
+                : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
 
@@ -124,3 +110,4 @@ export const getLastFeelingByUserId = async (req, res) => {
         }
     });
 };
+
