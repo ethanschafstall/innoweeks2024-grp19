@@ -23,7 +23,7 @@ namespace FeelingsApp
         {
             InitializeComponent();
             BindingContext = new FeelingsSite();
-            feeling.BackgroundColor = selectedFeeling.Color;
+            //feeling.BackgroundColor = selectedFeeling.Color;
             myFeelingLabel.Text = selectedFeeling.Name;
 
         }
@@ -86,11 +86,11 @@ namespace FeelingsApp
                                     myFeelingLabel.Text = feelingResponse.Feeling.FeeMood;
 
                                     FeelingResponse = feelingResponse.Feeling;
-                                    feeling.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
-
+                                    //feeling.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
+                                    var feelingColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
 
                                     await SecureStorage.SetAsync("FeeMood", feelingResponse.Feeling.FeeMood);
-                                    await SecureStorage.SetAsync("BackgroundColorFeeling", feeling.BackgroundColor.ToString());
+                                    await SecureStorage.SetAsync("BackgroundColorFeeling", feelingColor.ToString());
 
                                     await DisplayAlert("Last Feeling", $"Mood: {feelingResponse.Feeling.FkUser}, CreatedAt: {feelingResponse.Feeling.FeeCreatedAt}", "OK");
                                 }

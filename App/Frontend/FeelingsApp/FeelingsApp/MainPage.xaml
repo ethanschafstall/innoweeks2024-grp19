@@ -17,29 +17,42 @@ FontSize="80"
 FontAttributes="Italic"
 SemanticProperties.HeadingLevel="Level6" />
 
-        <Frame CornerRadius="150"
-               Margin="0,75,0,0" 
-                 WidthRequest="275" 
-                HeightRequest="275" 
-                BackgroundColor="#414b60"                    
-               x:Name="feeling"
-               >
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnNavigateToFeelingsSite" />
-            </Frame.GestureRecognizers>
-                <Label 
-                            x:Name="myFeelingLabel"
-                    TextColor="White" 
-                    Text="{Binding FeelingResponse.Mood}" 
-                    Style="{StaticResource Headline}" 
-                    SemanticProperties.HeadingLevel="Level1" 
-                    FontAttributes="Bold"      
-                    VerticalTextAlignment="Center"                    
-                />
-            </Frame>
 
-            <Button
-            Margin="0,50,0,0" 
+
+
+        <Grid WidthRequest="600" HeightRequest="600" Margin="0,-50,0,0">
+                <!-- Imagen de fondo -->
+                <Image Source="feelings_home_img.png"
+                       VerticalOptions="Center"
+
+                       HorizontalOptions="Center"
+                       Margin="50,-0,0,0"
+                       />
+
+                <!-- Imagen principal -->
+            <Image Source="feelings_button_img.png"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNavigateToFeelingsSite" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Etiqueta de texto -->
+                <Label x:Name="myFeelingLabel"
+               TextColor="White"
+               Text="{Binding FeelingResponse.Mood}"
+               Style="{StaticResource Headline}"
+               SemanticProperties.HeadingLevel="Level1"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            </Grid>
+ 
+
+        <Button
+            Margin="0,-100,0,0" 
 
             x:Name="Share"
             Text="Synchroniser"  

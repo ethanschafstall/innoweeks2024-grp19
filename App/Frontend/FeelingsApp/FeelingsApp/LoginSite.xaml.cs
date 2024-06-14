@@ -8,10 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
-using Android.Media.TV;
 using Microsoft.Maui.Controls;
-using Org.Apache.Http.Client;
-using static Android.Icu.Text.CaseMap;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
@@ -26,6 +23,8 @@ public partial class LoginSite : ContentPage
     public LoginSite()
 	{
 		InitializeComponent();
+        BindingContext = new FeelingsSite();
+
         //_httpClient = new HttpClient();
     }
     private async void OnLoginClicked(object sender, EventArgs e)
@@ -56,11 +55,7 @@ public partial class LoginSite : ContentPage
                     await SecureStorage.SetAsync("username", username);
 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jsonResponse.Token);
-
                     await DisplayAlert("Success", jsonResponse.Message, "OK");
-
-
-
                     // Navegar a la página de usuario
                     await Navigation.PushAsync(new UserSite());
                 }
@@ -81,38 +76,15 @@ public partial class LoginSite : ContentPage
             Debug.WriteLine(ex.Message );
 
         }        
+
+
+
     }
-    private async void OnCreateAccountClicked(object sender, EventArgs e)
-	{
-        string username = CreateUserName.Text;
-        string password = CreateUserPsw.Text;
-        try
-        {
-            var signInRequest = new SignInRequest
-            {
-                Username = username,
-                Password = password
-            };
 
-            var postResponse = await client.PostAsJsonAsync("https://feelings.blue.section-inf.ch/register", signInRequest);
-            if (postResponse.IsSuccessStatusCode)
-            {
-
-                var content = postResponse.Content;
-                var contentS = await postResponse.Content.ReadAsStringAsync();
-                await DisplayAlert("Response", contentS, "OK");
-
-            }
-            else
-            {
-                throw new Exception($"Bad status : {postResponse.StatusCode}, {postResponse.Headers},{postResponse.Content}");
-            }
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert(ex.Message, ex.StackTrace, "ok");
-            Debug.WriteLine(ex.Message );
-        }
+    private async void OnNewUserSite(object sender, EventArgs e)
+    {
+        // Lógica para navegar a la ruta "NewUserSite" u otras acciones según sea necesario
+        await Navigation.PushAsync(new NewUserSite());
     }
 
     public class LoginRequest

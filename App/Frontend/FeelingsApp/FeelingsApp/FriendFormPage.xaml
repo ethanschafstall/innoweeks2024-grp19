@@ -13,12 +13,19 @@
 
             
             <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
-                <Entry x:Name="UsernameEntry" Placeholder="Enter username" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
+                <Entry x:Name="UsernameEntry" Placeholder="Nom d’utilisateur" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
             </Frame>
             <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
-                <Entry x:Name="GroupNameEntry" Placeholder="Enter group name" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
+                <Entry x:Name="GroupNameEntry" Placeholder="Nom de group" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
             </Frame>
-            <Button Text="Add Friend" Clicked="OnAddFriendButtonClicked" BackgroundColor="Black" TextColor="White" CornerRadius="25" BorderColor="DimGray" BorderWidth="3" />
+            <Button Text="Ajouter" Clicked="OnAddFriendButtonClicked" BackgroundColor="Black" TextColor="White" CornerRadius="25" BorderColor="DimGray" BorderWidth="3" />
+
+            <Label Text="Créer un group" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
+                <Entry x:Name="GroupNameCreateEntry" Placeholder="Enter group name" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
+            </Frame>
+            <Button Text="Créer un group" Clicked="OnCreateAccountClicked" BackgroundColor="Black" TextColor="White" CornerRadius="25" BorderColor="DimGray" BorderWidth="3" />
 
         </StackLayout>
 
