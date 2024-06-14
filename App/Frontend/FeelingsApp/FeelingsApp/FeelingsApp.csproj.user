@@ -22,6 +22,9 @@
     <MauiXaml Update="LoginSite.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="NewUserSite.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="UserSite.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

@@ -7,6 +7,7 @@ namespace FeelingsApp;
 public partial class FriendsSite : ContentPage
 {
     public ObservableCollection<Friend> Friends { get; set; }
+    public ObservableCollection<string> GroupsList { get; set; } = new ObservableCollection<string>();
 
     public FriendsSite()
 	{
@@ -20,6 +21,7 @@ public partial class FriendsSite : ContentPage
             };
 
         FriendsListView.ItemsSource = Friends;
+        BindingContext = this;
 
 
     }
@@ -35,5 +37,14 @@ public partial class FriendsSite : ContentPage
         public string Name { get; set; }
         public string Status { get; set; }
         public Color Color { get; set; }
+
+    }
+    private void LoadGroups()
+    {
+        // Simulación de carga de grupos desde una fuente de datos
+        GroupsList.Add("Tous");
+        GroupsList.Add("Amis");
+        GroupsList.Add("Family");
+        GroupsList.Add("Travail");
     }
 }

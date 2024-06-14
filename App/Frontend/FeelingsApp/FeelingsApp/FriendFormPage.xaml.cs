@@ -17,12 +17,13 @@ namespace FeelingsApp
 
     public partial class FriendFormPage : ContentPage
     {
-        private readonly HttpClient client;
+        //private readonly HttpClient client;
+        HttpClient client = new();
 
         public FriendFormPage()
         {
             InitializeComponent();
-            client = new HttpClient();
+          //  client = new HttpClient();
 
         }
         private async void OnAddFriendButtonClicked(object sender, EventArgs e)
@@ -79,9 +80,47 @@ namespace FeelingsApp
                 await DisplayAlert("Error", "Failed to add friend.", "OK");
             }
         }
+
+        private async void OnCreateAccountClicked(object sender, EventArgs e)
+        {
+            string groupName = GroupNameCreateEntry.Text;
+            var authToken = await SecureStorage.GetAsync("auth_token");
+            if (string.IsNullOrEmpty(authToken))
+            {
+                await DisplayAlert("Error", "User is not authenticated.", "OK");
+                return;
+            }
+            try
+            {
+                var createGroupRequest = new CreateGroupRequest
+                {
+                    GroupName = groupName
+                };
+                client.DefaultRequestHeaders.Add("Cookie", $"authToken={authToken}");
+                var response = await client.PostAsJsonAsync("https://feelings.blue.section-inf.ch/friendsGroup", createGroupRequest);
+                if (response.IsSuccessStatusCode)
+                {
+                    // Navegar a la siguiente página y pasar el sentimiento seleccionado
+                    await Navigation.PushAsync(new FriendsSite());
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Failed to confirm feeling.", "OK");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert(ex.Message, ex.StackTrace, "ok");
+            }
+        }
         public class AddFriendRequest
         {
             public string Username { get; set; }
+            public string GroupName { get; set; }
+        }
+        public class CreateGroupRequest
+        {
             public string GroupName { get; set; }
         }
     }
