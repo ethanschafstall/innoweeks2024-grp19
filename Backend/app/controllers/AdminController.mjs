@@ -13,15 +13,10 @@ export const getAllUsers = async (req, res) => {
 
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
-            console.log(error);
-            let message;
-            if (error.name === 'TokenExpiredError') {
-                message = `Your session has expired. Please log in again.`;
-            } else if (error.name === 'JsonWebTokenError') {
-                message = `The request is invalid. Please check your login details.`;
-            } else {
-                message = `The user is not authorized to access this resource.`;
-            }
+            console.error("JWT Verification Error:", error);
+            const message = error.name === 'TokenExpiredError'
+                ? "Your session has expired. Please log in again."
+                : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
         const userRole = decodedToken.role;
