@@ -22,8 +22,6 @@ export const postFriends = async (req, res) => {
             return res.status(401).json({ message });
         }
 
-        const fkUser = decodedToken.id;
-
         try {
             const userInGroupQuery = `
                 SELECT * FROM t_group_members
@@ -49,55 +47,6 @@ export const postFriends = async (req, res) => {
             return res.status(200).json({ message: `Friend added successfully to the group ${groId}.` });
         } catch (error) {
             console.error("Error adding friend to group:", error);
-            return res.status(500).json({ error: "Internal Server Error" });
-        }
-    });
-};
-
-export const getFriendsFeelings = async (req, res) => {
-    const token = req.cookies.authToken;
-    const { id } = req.params;
-
-    if (!token) {
-        return res.status(401).json({ message: "You did not provide an authentication token." });
-    }
-
-    jwt.verify(token, privateKey, async (error, decodedToken) => {
-        if (error) {
-            console.error("JWT Verification Error:", error);
-            const message = error.name === 'TokenExpiredError'
-                ? "Your session has expired. Please log in again."
-                : "The request is invalid. Please check your login details.";
-            return res.status(401).json({ message });
-        }
-
-        const userId = decodedToken.id;
-
-        try {
-            // Query to get the last feeling by the user ID for group owners where the authenticated user is a member
-            const query = `
-                SELECT f.feeMood, u.useUsername
-                FROM t_feelings as f
-                JOIN t_users as u ON f.fkUser = u.userId
-                WHERE f.fkUser = ?
-                AND f.fkUser IN (
-                    SELECT g.fkUser
-                    FROM t_group_members gm
-                    JOIN t_groups g ON gm.fkGroup = g.groupId
-                    WHERE gm.fkUser = ?
-                )
-                ORDER BY f.feelingsId DESC
-                LIMIT 1
-            `;
-            const [rows] = await req.dbConnection.execute(query, [id, userId]);
-
-            if (rows.length > 0) {
-                return res.status(200).json({ feeling: rows[0] });
-            } else {
-                return res.status(404).json({ message: "No feelings found for this user." });
-            }
-        } catch (error) {
-            console.error("Error fetching feelings:", error);
             return res.status(500).json({ error: "Internal Server Error" });
         }
     });
