@@ -29,10 +29,9 @@ export const postFeeling = async (req, res) => {
         const mood = body.mood;
         const timeDate = formatDateToSQL(new Date());
         const fkUser = decodedToken.id;
-
         try {
             const [rows] = await req.dbConnection.execute(queryString, [mood, timeDate, fkUser]);
-            console.log(`user: ${decodedToken.username} has posted "${mood}"`)
+            console.log(`${decodedToken.username} is feelings "${mood}"`)
             return res.status(200).json({ users: rows });
         } catch (error) {
             console.error("Error fetching users:", error);
