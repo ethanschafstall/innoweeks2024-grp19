@@ -1,79 +1,104 @@
 import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
-import { formatDateToSQL } from "../tools/dateFormater.mjs";
-import { notifier } from '../services/notifications/notificationManager.mjs';
-import { postFriendsGroup } from './FriendsGroupController.mjs';
 
 export const postFriends = async (req, res) => {
     const token = req.cookies.authToken;
-    const body = req.body;
+    const { groId, useUsername } = req.body;
 
     if (!token) {
-        const message = `You did not provide an authentication token.`;
-        return res.status(401).json({ message });
+        return res.status(401).json({ message: "You did not provide an authentication token." });
     }
 
-    if (!body  || !body.groId || !body.useUsername) {
-        const message = `You did not provide a valid request body, group name, or user username.`;
-        return res.status(400).json({ message });
+    if (!groId || !useUsername) {
+        return res.status(400).json({ message: "You did not provide a valid request body, group name, or user username." });
     }
 
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
-            console.log(error);
-            let message;
-            if (error.name === 'TokenExpiredError') {
-                message = `Your session has expired. Please log in again.`;
-            } else if (error.name === 'JsonWebTokenError') {
-                message = `The request is invalid. Please check your login details.`;
-            } else {
-                message = `The user is not authorized to access this resource.`;
-            }
+            console.error("JWT Verification Error:", error);
+            const message = error.name === 'TokenExpiredError'
+                ? "Your session has expired. Please log in again."
+                : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
 
-        try {
-            const fkGroup = body.groId;
-            const useUsername = body.useUsername;
+        const fkUser = decodedToken.id;
 
-            const userInGroupQuery = `SELECT * FROM t_group_members WHERE fkGroup = ? AND fkUser IN (SELECT userId FROM t_users WHERE useUsername = ?)`;
-            const [userInGroupRows] = await req.dbConnection.execute(userInGroupQuery, [fkGroup, useUsername]);
+        try {
+            const userInGroupQuery = `
+                SELECT * FROM t_group_members
+                WHERE fkGroup = ? AND fkUser = (SELECT userId FROM t_users WHERE useUsername = ?)
+            `;
+            const [userInGroupRows] = await req.dbConnection.execute(userInGroupQuery, [groId, useUsername]);
 
             if (userInGroupRows.length > 0) {
-                const message = `The user ${useUsername} is already assigned to the group ${fkGroup}.`;
-                return res.status(400).json({ message });
+                return res.status(400).json({ message: `The user ${useUsername} is already assigned to the group ${groId}.` });
             }
-            
-            const fkUser = await getUserId(req.dbConnection, useUsername);
 
-            if (fkUser.length == 0 || !fkUser.userId ) {
-                const message = `The user ${useUsername} it doesn't existe.`;
-                return res.status(400).json({ message });
+            const userQuery = `SELECT userId FROM t_users WHERE useUsername = ?`;
+            const [userRows] = await req.dbConnection.execute(userQuery, [useUsername]);
+
+            if (userRows.length === 0) {
+                return res.status(400).json({ message: `The user ${useUsername} does not exist.` });
             }
+
+            const fkUser = userRows[0].userId;
             const insertQuery = `INSERT INTO t_group_members (fkGroup, fkUser) VALUES (?, ?)`;
+            await req.dbConnection.execute(insertQuery, [groId, fkUser]);
 
-            await req.dbConnection.execute(insertQuery, [fkGroup, fkUser.userId]);
-
-            return res.status(200).json({ message: `Friend added successfully to the group ${fkGroup}.` });
+            return res.status(200).json({ message: `Friend added successfully to the group ${groId}.` });
         } catch (error) {
             console.error("Error adding friend to group:", error);
-            return res.status(500).json({ error: `Internal Server Error` });
+            return res.status(500).json({ error: "Internal Server Error" });
         }
     });
 };
 
-const getUserId = async (dbConnection, useUsername) => {
-    try {
-        const userIdQuery = `SELECT userId FROM t_users WHERE useUsername = ?`;
-        const [userIdRows] = await dbConnection.execute(userIdQuery, [useUsername]);
+export const getFriendsFeelings = async (req, res) => {
+    const token = req.cookies.authToken;
+    const { id } = req.params;
 
-        if (!userIdRows || userIdRows.length == 0) {
-            return { success: false, message: `The user with the username ${useUsername} does not exist.` };
+    if (!token) {
+        return res.status(401).json({ message: "You did not provide an authentication token." });
+    }
+
+    jwt.verify(token, privateKey, async (error, decodedToken) => {
+        if (error) {
+            console.error("JWT Verification Error:", error);
+            const message = error.name === 'TokenExpiredError'
+                ? "Your session has expired. Please log in again."
+                : "The request is invalid. Please check your login details.";
+            return res.status(401).json({ message });
         }
 
-        return { success: true, userId: userIdRows[0].userId };
-    } catch (error) {
-        console.error("Error in getUserId:", error);
-        return { success: false, message: "Internal Server Error" };
-    }
+        const userId = decodedToken.id;
+
+        try {
+            // Query to get the last feeling by the user ID for group owners where the authenticated user is a member
+            const query = `
+                SELECT f.feeMood, u.useUsername
+                FROM t_feelings as f
+                JOIN t_users as u ON f.fkUser = u.userId
+                WHERE f.fkUser = ?
+                AND f.fkUser IN (
+                    SELECT g.fkUser
+                    FROM t_group_members gm
+                    JOIN t_groups g ON gm.fkGroup = g.groupId
+                    WHERE gm.fkUser = ?
+                )
+                ORDER BY f.feelingsId DESC
+                LIMIT 1
+            `;
+            const [rows] = await req.dbConnection.execute(query, [id, userId]);
+
+            if (rows.length > 0) {
+                return res.status(200).json({ feeling: rows[0] });
+            } else {
+                return res.status(404).json({ message: "No feelings found for this user." });
+            }
+        } catch (error) {
+            console.error("Error fetching feelings:", error);
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+    });
 };
