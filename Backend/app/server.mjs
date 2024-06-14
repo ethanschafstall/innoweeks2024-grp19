@@ -8,8 +8,8 @@ import registerRoute from './routes/Register.mjs';
 import feelingsRoute from './routes/Feelings.mjs';
 import loginRoute from './routes/Login.mjs';
 import adminRoute from './routes/Admin.mjs';
-import friendsGroupRoute from './routes/FriendsGroup.mjs';
 import friendsRoute from './routes/Friends.mjs';
+import groupsRoute from './routes/Groups.mjs'
 
 
 // Middleware
@@ -36,12 +36,12 @@ app.use('/user', userRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 app.use('/feelings', feelingsRoute);
-app.use('/groups', friendsGroupRoute)
-app.use('/friends', friendsRoute)
+app.use('/friends', friendsRoute);
+app.use('/groups', groupsRoute);
 
 
 // Define ports for HTTP and HTTPS
-const portHttp = 8080;
+const portHttp = 443;
 
 // Start the HTTP server
 http.createServer(app).listen(portHttp, () => {
