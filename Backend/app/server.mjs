@@ -35,9 +35,10 @@ app.use('/users', adminRoute);
 app.use('/user', userRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
-app.use('/feeling', feelingsRoute);
-app.use('/friendsGroup', friendsGroupRoute)
-app.use('/friend', friendsRoute)
+app.use('/feelings', feelingsRoute);
+app.use('/groups', friendsGroupRoute)
+app.use('/friends', friendsRoute)
+
 
 // Define ports for HTTP and HTTPS
 const portHttp = 8080;
