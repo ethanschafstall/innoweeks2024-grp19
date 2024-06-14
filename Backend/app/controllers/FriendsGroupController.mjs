@@ -1,54 +1,44 @@
 import jwt from 'jsonwebtoken';
 import { privateKey } from "../privateKey.mjs";
-import { formatDateToSQL } from "../tools/dateFormater.mjs";
-import { notifier } from '../services/notifications/notificationManager.mjs';
 
 export const postFriendsGroup = async (req, res) => {
     const token = req.cookies.authToken;
-    const body = req.body;
+    const { groName } = req.body;
 
     if (!token) {
-        const message = `Vous n'avez pas fourni de jeton d'authentification.`;
-        return res.status(401).json({ message });
+        return res.status(401).json({ message: "You did not provide an authentication token." });
     }
-    if (!body || !body.groName) {
-        const message = `Vous n'avez pas fourni un corps de requête ou un nom de groupe valide.`;
-        return res.status(400).json({ message });
+
+    if (!groName) {
+        return res.status(400).json({ message: "You did not provide a valid request body or group name." });
     }
 
     jwt.verify(token, privateKey, async (error, decodedToken) => {
         if (error) {
-            console.log(error);
-            let message;
-            if (error.name === 'TokenExpiredError') {
-                message = `Votre session a expiré. Veuillez vous reconnecter.`;
-            } else if (error.name === 'JsonWebTokenError') {
-                message = `La requête est invalide. Veuillez vérifier vos identifiants de connexion.`;
-            } else {
-                message = `L'utilisateur n'est pas autorisé à accéder à cette ressource.`;
-            }
+            console.error("JWT Verification Error:", error);
+            const message = error.name === 'TokenExpiredError'
+                ? "Your session has expired. Please log in again."
+                : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
 
-        const groupName = body.groName;
         const fkUser = decodedToken.id;
 
         try {
             const checkGroupQuery = `SELECT groupId FROM t_groups WHERE groName = ?`;
-            const [existingGroup] = await req.dbConnection.execute(checkGroupQuery, [groupName]);
+            const [existingGroup] = await req.dbConnection.execute(checkGroupQuery, [groName]);
 
             if (existingGroup.length > 0) {
-                const message = `Un groupe avec le nom "${groupName}" existe déjà.`;
-                return res.status(400).json({ message });
+                return res.status(400).json({ message: `A group with the name "${groName}" already exists.` });
             }
 
             const insertGroupQuery = `INSERT INTO t_groups (groName, fkUser) VALUES (?, ?)`;
-            const [rows] = await req.dbConnection.execute(insertGroupQuery, [groupName, fkUser]);
+            await req.dbConnection.execute(insertGroupQuery, [groName, fkUser]);
 
-            return res.status(200).json({ group: rows });
+            return res.status(200).json({ message: `Group ${groName} created successfully.` });
         } catch (error) {
             console.error("Error creating group:", error);
-            return res.status(500).json({ error: "Erreur interne du serveur" });
+            return res.status(500).json({ error: "Internal Server Error" });
         }
     });
 };

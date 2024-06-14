@@ -6,6 +6,17 @@ export const postLogin = async(req, res) => {
   const { username, password, platform } = req.body;
   const findUserQueryString = `SELECT * FROM t_users WHERE useUsername = ?`;
   const updatePlatformQueryString = `UPDATE t_users SET usePlatform = ? WHERE useUsername = ?;`
+
+     if (!username) {
+        return res.status(401).json({ message: "You did not provide a username." });
+    }
+    if (!password) {
+        return res.status(401).json({ message: "You did not provide a password." });
+    }
+    if (!platform) {
+        return res.status(401).json({ message: "You did not provide a platform." });
+    }
+
   try {
       const [result] = await req.dbConnection.execute(findUserQueryString, [username]);
       const user = result[0];
