@@ -12,10 +12,11 @@ export const getUser = (req, res) => {
         
         // Verifying the token with the secret key
         jwt.verify(token, privateKey, (error, decodedToken) => {
-            console.log(token);
             if (error) {
-                // If token verification fails, return 401 Unauthorized status
-                const message = `The user is not authorized to access this resource.`;
+                console.error("JWT Verification Error:", error);
+                const message = error.name === 'TokenExpiredError'
+                    ? "Your session has expired. Please log in again."
+                    : "The request is invalid. Please check your login details.";
                 return res.status(401).json({ message });
             }
             // Extracting user ID from the decoded token
