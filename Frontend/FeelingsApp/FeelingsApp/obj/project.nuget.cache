@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "fKc5xJeSIiiKChb2qtHr1SGuyRju9oTJCnAeZPfGulpyLwalVejmY/a8thQGrJ212Kr3nlsXnCO+P0EUjuN2dg==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\pq17tmn\\Downloads\\innoweeks2024-grp19_14_06\\innoweeks2024-grp19\\App\\Frontend\\FeelingsApp\\FeelingsApp\\FeelingsApp.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1012",
+      "level": "Error",
+      "message": "La version de la plateforme n'est pas présente pour un ou plusieurs frameworks cibles, même s'ils ont spécifié une plateforme : net8.0-android, net8.0-maccatalyst"
+    }
+  ]
+}

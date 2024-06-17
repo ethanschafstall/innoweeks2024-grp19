@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FeelingsApp.UserSite"
+             Title="UserSite"
+             BackgroundColor="#242c3c" 
+             >
+
+    <StackLayout>
+
+        <Grid BackgroundColor="Black" HeightRequest="75" >
+            <Label Text="Utilisateur" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+        </Grid>
+
+        
+        <VerticalStackLayout>
+            <StackLayout Margin="0,75,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding Username}"  FontSize="Title" TextColor="White" x:Name="userName"/>
+            </StackLayout>
+
+            <Label 
+                    x:Name="myUserFeeling"
+            TextColor="White" 
+            Text="{Binding FeelingResponse.Mood}" 
+            Style="{StaticResource Headline}" 
+            SemanticProperties.HeadingLevel="Level1" 
+            FontAttributes="Bold"      
+            VerticalTextAlignment="Center" 
+                    LineBreakMode="WordWrap"
+                    
+        />
+
+            <Button
+                Margin="0,100,0,0" 
+                x:Name="Logout"
+                Text="Desconnexion"  
+                FontAttributes="Bold"
+                BackgroundColor="Grey"
+                FontSize="Large"
+                WidthRequest="200"
+                HorizontalOptions="Fill" 
+                BorderColor="White"
+                BorderWidth="3"
+                Clicked="OnLogoutClicked"       
+>
+            </Button>
+
+        </VerticalStackLayout>
+        
+
+        
+    </StackLayout>
+</ContentPage>

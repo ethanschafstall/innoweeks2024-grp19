@@ -1,0 +1,85 @@
+is_global = true
+build_property.TargetFramework = net8.0-windows10.0.19041.0
+build_property.TargetPlatformMinVersion = 10.0.17763.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FeelingsApp
+build_property.ProjectDir = C:\Users\pq17tmn\Documents\GitHub\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/Calendar.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.Calendar.xaml
+build_metadata.AdditionalFiles.TargetPath = Calendar.xaml
+build_metadata.AdditionalFiles.RelativePath = Calendar.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/FeelingsSite.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.FeelingsSite.xaml
+build_metadata.AdditionalFiles.TargetPath = FeelingsSite.xaml
+build_metadata.AdditionalFiles.RelativePath = FeelingsSite.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/FriendFormPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.FriendFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = FriendFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = FriendFormPage.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/FriendsSite.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.FriendsSite.xaml
+build_metadata.AdditionalFiles.TargetPath = FriendsSite.xaml
+build_metadata.AdditionalFiles.RelativePath = FriendsSite.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/LoginSite.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.LoginSite.xaml
+build_metadata.AdditionalFiles.TargetPath = LoginSite.xaml
+build_metadata.AdditionalFiles.RelativePath = LoginSite.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/NewUserSite.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.NewUserSite.xaml
+build_metadata.AdditionalFiles.TargetPath = NewUserSite.xaml
+build_metadata.AdditionalFiles.RelativePath = NewUserSite.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/pq17tmn/Documents/GitHub/innoweeks2024-grp19/App/Frontend/FeelingsApp/FeelingsApp/UserSite.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FeelingsApp.UserSite.xaml
+build_metadata.AdditionalFiles.TargetPath = UserSite.xaml
+build_metadata.AdditionalFiles.RelativePath = UserSite.xaml

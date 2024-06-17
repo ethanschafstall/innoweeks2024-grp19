@@ -1,0 +1,13 @@
+is_global = true
+build_property.TargetFramework = net8.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FeelingsApp
+build_property.ProjectDir = D:\OneDrive\OneDrive - Education Vaud\ETML\CID2B\InnoWeek\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
