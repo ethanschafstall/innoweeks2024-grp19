@@ -21,7 +21,7 @@
                     <ViewCell>
                         <Frame MaximumHeightRequest="150" CornerRadius="10" Margin="5" Padding="0" BackgroundColor="Transparent"  BorderColor="{Binding Color}" >
                             <Grid  >
-                                <!--<Image Source="{Binding ImgStatus}" Aspect="AspectFill" Opacity="0.7"/>-->
+                                <Image Source="{Binding ImgStatus}" Aspect="AspectFill" Opacity="0.5"/>
                                 <StackLayout Orientation="Horizontal" Padding="10" HeightRequest="100" VerticalOptions="End">
                                     <StackLayout Orientation="Vertical" Padding="10,0" VerticalOptions="End">
                                         <Label Text="{Binding Name, StringFormat='{}{0} est'}" FontSize="Large" TextColor="White" Margin="10,0,0,0"/>

@@ -7,21 +7,43 @@
 >
     <VerticalStackLayout>
 
-        <Grid BackgroundColor="Black" HeightRequest="75" >
-            <Label Text="Feelings" FontSize="24" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+        <Grid BackgroundColor="Transparent" HeightRequest="75" Margin="10,0,0,0">
+            <Label Text="Feelings" FontSize="24" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
         </Grid>
 
         <CollectionView x:Name="FeelingListView" ItemsSource="{Binding Feelings}" SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Vertical" Padding="10">
-                        <BoxView Color="{Binding Color}" WidthRequest="30" HeightRequest="30" CornerRadius="15" BackgroundColor="Transparent" />
-                        <Label Text="{Binding Name}"  HorizontalOptions="CenterAndExpand" Margin="10,0,0,0" TextColor="White" />
-                    </StackLayout>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Primer bloque -->
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Image Source="{Binding ImgBgSrc}" Aspect="AspectFill" Opacity="0.3" />
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                <!--<BoxView Color="{Binding Color}" WidthRequest="30" HeightRequest="30" CornerRadius="15" BackgroundColor="Transparent" />-->
+                                <Image Source="{Binding IconStatus}" HeightRequest="100" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"  />
+                                <Label Text="{Binding Name}" HorizontalOptions="CenterAndExpand" Margin="10,0,0,0" TextColor="White" />
+                            </StackLayout>
+                        </Grid>
+
+
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Confirmer" Clicked="OnConfirmClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20" />
+
+        <Button  Text="Confirmer" BackgroundColor="Wheat" Clicked="OnConfirmClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,175,0,0" />
 
     </VerticalStackLayout>
 </ContentPage>

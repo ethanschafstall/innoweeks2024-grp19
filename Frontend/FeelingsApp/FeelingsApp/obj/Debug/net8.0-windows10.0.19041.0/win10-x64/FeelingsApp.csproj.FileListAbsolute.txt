@@ -211,3 +211,18 @@ D:\OneDrive\OneDrive - Education Vaud\ETML\CID2B\InnoWeek\innoweeks2024-grp19\Ap
 D:\OneDrive\OneDrive - Education Vaud\ETML\CID2B\InnoWeek\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FeelingsApp.dll
 D:\OneDrive\OneDrive - Education Vaud\ETML\CID2B\InnoWeek\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\refint\FeelingsApp.dll
 D:\OneDrive\OneDrive - Education Vaud\ETML\CID2B\InnoWeek\innoweeks2024-grp19\App\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FeelingsApp.pdb
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FeelingsApp.csproj.AssemblyReference.cache
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauifont.inputs
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauisplash.inputs
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauimanifest.stamp
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.i.cs
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.g.cs
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\XamlTypeInfo.g.cs
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xaml
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\Platforms\Windows\App.xbf
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\XamlSaveStateFile.xml
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FeelingsApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FeelingsApp.dll
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\refint\FeelingsApp.dll
+D:\Program Files\GitHub\innoweeks2024-grp19\Frontend\FeelingsApp\FeelingsApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FeelingsApp.pdb

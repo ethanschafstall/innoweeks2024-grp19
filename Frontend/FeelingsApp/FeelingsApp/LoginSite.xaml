@@ -24,7 +24,7 @@
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5"/>
+                            <Image Source="user.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5"/>
                             <Entry x:Name="LoginUserName" Placeholder="Nom d’utilisateur" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent" Grid.Column="1"/>
                         </Grid>
                     </Frame>

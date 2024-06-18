@@ -5,29 +5,139 @@
              BackgroundColor="#242c3c" 
              Title="FriendFormPage">
     <VerticalStackLayout>
-        <Grid BackgroundColor="Black" HeightRequest="75">
+  <!--      <Grid BackgroundColor="Black" HeightRequest="75">
             <Label Text="Add Friend" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
-        </Grid>
+        </Grid>-->
 
-        <StackLayout Padding="30" Spacing="20">
+        <StackLayout Padding="30" Spacing="20" >
 
-            
-            <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
-                <Entry x:Name="UsernameEntry" Placeholder="Nom d’utilisateur" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
+            <Label Text="Ajouter utilisateur" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" Margin="0,10,0,0"/>
+
+            <Frame CornerRadius="25" BackgroundColor="Transparent" Padding="20" BorderColor="White">
+                <StackLayout Spacing="20">
+                    <!-- Username Entry with Icon -->
+                    <Frame CornerRadius="25" BackgroundColor="White" Padding="10" BorderColor="Black">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="user.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5"/>
+                            <Entry x:Name="UsernameEntry" Placeholder="Nom d’utilisateur" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <!-- Group Entry with Icon -->
+                    <Frame CornerRadius="25" BackgroundColor="White" Padding="10" BorderColor="Black">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5"/>
+                            <Entry x:Name="GroupNameEntry" Placeholder="Group"   TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Grid Padding="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Sign In Button -->
+                        <Frame Grid.Column="0"
+                       Margin="0,0,0,0"
+   BackgroundColor="Transparent"
+   BorderColor="White"
+   WidthRequest="120"
+                              
+   CornerRadius="25"
+   Padding="10"
+   HasShadow="False">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="add_friend.png"
+           HeightRequest="15"
+           VerticalOptions="Center"
+           Margin="0,0,0,0" />
+
+                                <Label Grid.Column="1"
+           Text="Ajouter"
+           VerticalOptions="Center"                              
+           TextColor="White"
+           FontSize="Small"
+           Margin="20,0,0,0" 
+                               />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAddFriendButtonClicked" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
             </Frame>
-            <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
-                <Entry x:Name="GroupNameEntry" Placeholder="Nom de group" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
-            </Frame>
-            <Button Text="Ajouter" Clicked="OnAddFriendButtonClicked" BackgroundColor="Black" TextColor="White" CornerRadius="25" BorderColor="DimGray" BorderWidth="3" />
 
-            <Label Text="Créer un group" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Text="Créer un group" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" Margin="0,20,0,0"/>
 
-            <Frame CornerRadius="25" BackgroundColor="DimGray" Padding="10" BorderColor="White">
-                <Entry x:Name="GroupNameCreateEntry" Placeholder="Enter group name" TextColor="White" PlaceholderColor="White" BackgroundColor="DimGray" />
+
+            <Frame CornerRadius="25" BackgroundColor="Transparent" Padding="20" BorderColor="White">
+                <StackLayout Spacing="20">
+                    <!-- Username Entry with Icon -->
+                    <Frame CornerRadius="25" BackgroundColor="White" Padding="10" BorderColor="Black">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5"/>
+                            <Entry x:Name="GroupNameCreateEntry" Placeholder="Nom du group" TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Grid Padding="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Sign In Button -->
+                        <Frame Grid.Column="0"
+                                  WidthRequest="140"
+
+                    Margin="0,0,0,0"
+BackgroundColor="Transparent"
+BorderColor="White"
+CornerRadius="25"
+Padding="10"
+HasShadow="False">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="1"
+        Text="+  Créer un group"
+        VerticalOptions="Center"                        
+        TextColor="White"
+        FontSize="Small"
+        Margin="0,0,0,0" 
+                            />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCreateAccountClicked" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
             </Frame>
-            <Button Text="Créer un group" Clicked="OnCreateAccountClicked" BackgroundColor="Black" TextColor="White" CornerRadius="25" BorderColor="DimGray" BorderWidth="3" />
+
 
         </StackLayout>
+
+
 
     </VerticalStackLayout>
 

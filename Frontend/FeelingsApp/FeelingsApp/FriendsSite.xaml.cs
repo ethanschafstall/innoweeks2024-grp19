@@ -27,9 +27,10 @@ public partial class FriendsSite : ContentPage
     private async void LoadLocalFriends()
     {
         // Ejemplo de datos locales de amigos
-        Friends.Add(new Friend { Name = "Alice", Status = "Timide", Color = Colors.Green            ,
-            IconStatus = GetIconForMood("")});
-        Friends.Add(new Friend { Name = "Bob", Status = "Triste", Color = Colors.Blue, IconStatus = GetIconForMood("")
+        Friends.Add(new Friend { Name = "Alice", Status = "Calme", Color = Colors.Green , ImgStatus=GetImgForMood("Calme")           ,
+            IconStatus = GetIconForMood("Calme")
+        });
+        Friends.Add(new Friend { Name = "Bob", Status = "Triste", Color = Colors.Blue, ImgStatus=GetImgForMood("Tristesse"),IconStatus = GetIconForMood("Tristesse")
         });
     }
     private async void OnAddFriendButtonClicked(object sender, EventArgs e)
@@ -71,7 +72,7 @@ public partial class FriendsSite : ContentPage
                             Name = feeling.UseUsername,  // Asignar el nombre del usuario como se muestra en el ejemplo
                             Status = feeling.FeeMood,    // Asignar el estado de ánimo como se muestra en el ejemplo
                             Color = GetColorForMood(feeling.FeeMood),  // Obtener el color según el estado de ánimo
-                            //ImgStatus = GetImgForMood(feeling.FeeMood),
+                            ImgStatus = GetImgForMood(feeling.FeeMood),
                             IconStatus = GetIconForMood(feeling.FeeMood)
                         }); ;
                     }
@@ -110,22 +111,40 @@ public partial class FriendsSite : ContentPage
     }
     private String GetImgForMood(string mood)
     {
+        //switch (mood)
+        //{
+        //    case "Peur":
+        //        return "peur_img.png";
+        //    case "Amour":
+        //        return "amour_img.png";
+        //    case "Colère":
+        //        return "colere_img.png";
+        //    case "Joie":
+        //        return "joie_img.png";
+        //    case "Calme":
+        //        return "calme_img.png";
+        //    case "Tristesse":
+        //        return "tristesse_img.png";
+        //    default:
+        //        return "joie_img.png";
+        //}
+
         switch (mood)
         {
             case "Peur":
-                return "peur_img.png";
+                return "peur_background.png";
             case "Amour":
-                return "amour_img.png";
+                return "amour_background.png";
             case "Colère":
-                return "colere_img.png";
+                return "colere_background.png";
             case "Joie":
-                return "joie_img.png";
+                return "joie_background.png";
             case "Calme":
-                return "calme_img.png";
+                return "calme_background.png";
             case "Tristesse":
-                return "tristesse_img.png";
+                return "tristesse_background.png";
             default:
-                return "joie_img.png";
+                return "joie_background.png";
         }
     }
     private String GetIconForMood(string mood)
@@ -162,7 +181,8 @@ public partial class FriendsSite : ContentPage
         public string Name { get; set; }
         public string Status { get; set; }
         public Color Color { get; set; }
-        //public string ImgStatus { get; set; }
+        
+        public string ImgStatus { get; set; }
         
 
         public string IconStatus { get; set; }

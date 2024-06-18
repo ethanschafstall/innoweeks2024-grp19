@@ -2,6 +2,7 @@
 using Microsoft.Maui.Graphics.Text;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using static FeelingsApp.FriendsSite;
 
 namespace FeelingsApp
 {
@@ -25,8 +26,9 @@ namespace FeelingsApp
             BindingContext = new FeelingsSite();
             //feeling.BackgroundColor = selectedFeeling.Color;
             feelingButton.Text = selectedFeeling.Name;
-            feelingButton.BackgroundColor = GetColorForMood(feelingButton.Text);
-
+            //feelingButton.BackgroundColor = GetColorForMood(feelingButton.Text);
+            HomeImage.Source = GetHomeImgForMood(feelingButton.Text);
+            FeelBcImg.Source = GetFeelBcForMood(feelingButton.Text);
 
         }
 
@@ -91,6 +93,7 @@ namespace FeelingsApp
                                     feelingButton.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
                                     //feeling.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
                                     var feelingColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
+                                    HomeImage.Source = GetHomeImgForMood(feelingResponse.Feeling.FeeMood);
 
                                     await SecureStorage.SetAsync("FeeMood", feelingResponse.Feeling.FeeMood);
                                     await SecureStorage.SetAsync("BackgroundColorFeeling", feelingColor.ToString());
@@ -135,6 +138,67 @@ namespace FeelingsApp
                     return Color.FromArgb("#0A97B6");
                 default:
                     return Colors.DarkGray;
+            }
+        }
+        private String GetIconForMood(string mood)
+        {
+            switch (mood)
+            {
+                case "Peur":
+                    return "peur_logo.png";
+                case "Amour":
+                    return "amour_logo.png";
+                case "Colère":
+                    return "colere_logo.png";
+                case "Joie":
+                    return "joie_logo.png";
+                case "Calme":
+                    return "calme_logo.png";
+                case "Tristesse":
+                    return "tristesse_logo.png";
+                default:
+                    return "joie_logo.png";
+            }
+        }
+        private String GetHomeImgForMood(string mood)
+        {
+            switch (mood)
+            {
+                case "Peur":
+                    return "peur_home.png";
+                case "Amour":
+                    return "amour_home.png";
+                case "Colère":
+                    return "colere_home.png";
+                case "Joie":
+                    return "joie_home.png";
+                case "Calme":
+                    return "calme_home.png";
+                case "Tristesse":
+                    return "tristesse_home.png";
+                default:
+                    return "feelings_home_img.png";
+            }
+        }
+        
+            private String GetFeelBcForMood(string mood)
+        {
+            switch (mood)
+            {
+                case "Peur":
+                    return "peur_background.png";
+                case "Amour":
+                    return "amour_background.png";
+                case "Colère":
+                    return "colere_background.png";
+                case "Joie":
+                    return "joie_background.png";
+                case "Calme":
+                    return "calme_background.png";
+                case "Tristesse":
+                    return "tristesse_background.png";
+                default:
+                    return "joie_background.png";
             }
         }
 

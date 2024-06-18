@@ -59,11 +59,13 @@
 	  <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
 	  <None Remove="Resources\Images\add_friend.png" />
 	  <None Remove="Resources\Images\amour_logo.png" />
-	  <None Remove="Resources\Images\calem_logo.png" />
 	  <None Remove="Resources\Images\calendar.png" />
+	  <None Remove="Resources\Images\calme_logo.png" />
 	  <None Remove="Resources\Images\colere_logo.png" />
 	  <None Remove="Resources\Images\content_icon.png" />
+	  <None Remove="Resources\Images\Feelings_Banner.png" />
 	  <None Remove="Resources\Images\feelings_button_img.png" />
+	  <None Remove="Resources\Images\feeling_square_logo.png" />
 	  <None Remove="Resources\Images\friends.png" />
 	  <None Remove="Resources\Images\friends2.png" />
 	  <None Remove="Resources\Images\home.png" />
