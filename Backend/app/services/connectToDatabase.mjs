@@ -3,11 +3,22 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const host = process.env.DB_HOST;
-const port = process.env.DB_PORT;
-const user = process.env.DB_USER;
-const password = process.env.DB_PASSWORD;
-const database = process.env.DB_DATABASE;
+//const host = process.env.DB_HOST;
+//const port = process.env.DB_PORT;
+//const user = process.env.DB_USER;
+//const password = process.env.DB_PASSWORD;
+//const database = process.env.DB_DATABASE;
+
+
+const host = "localhost";
+const port = 6033;
+const user = "root";
+const password = "root";
+const database = "db_feelingsApp";
+
+
+
+
 
 const dbConfig = {
     host: host,

@@ -1,0 +1,17 @@
+{
+   "username": "group19",
+   "password": "gagneInnow33ks2024"
+}
+
+{
+	"username": "testadmin",
+	"password": "testadminpassword"
+}
+
+testuser 2, 3, 4, 5 all have the same password
+{
+	"username": "testuser",
+	"password": "testuser"
+}
+
+** when logging in the platform key is needed.

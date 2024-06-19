@@ -26,7 +26,7 @@ export const postLogin = async(req, res) => {
       const expectedHash = authentication(password, salt)
 
       if (user.usePassword != expectedHash) {
-          return res.status(401).json({ message: "Invalid username or password." });
+          return res.status(401).json({ message: "Invalid  password." });
       }
 
       const message = `User has successfully logged in.`;
