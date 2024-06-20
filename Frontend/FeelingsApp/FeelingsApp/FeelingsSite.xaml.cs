@@ -35,13 +35,13 @@ public partial class FeelingsSite : ContentPage
         await SecureStorage.SetAsync("FeeMood", selectedFeeling.Name);
         await SecureStorage.SetAsync("BackgroundColor", selectedFeeling.Color.ToString());
 
-        await Navigation.PushAsync(new MainPage(selectedFeeling));
+        //await Navigation.PushAsync(new MainPage(selectedFeeling));
 
         if (selectedFeeling != null)
         {
             //AuthMethode
-            //await SecureStorage.SetAsync("FeeMood", selectedFeeling.Name);
-            //await SecureStorage.SetAsync("BackgroundColor", selectedFeeling.Color.ToString());
+            await SecureStorage.SetAsync("FeeMood", selectedFeeling.Name);
+            await SecureStorage.SetAsync("BackgroundColor", selectedFeeling.Color.ToString());
 
             // Recuperar el authToken del SecureStorage
             var authToken = await SecureStorage.GetAsync("auth_token");

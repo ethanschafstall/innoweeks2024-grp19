@@ -28,6 +28,7 @@
                     </Frame>
 
                     <!-- Group Entry with Icon -->
+
                     <Frame CornerRadius="25" BackgroundColor="White" Padding="10" BorderColor="Black">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -35,7 +36,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5"/>
-                            <Entry x:Name="GroupNameEntry" Placeholder="Group"   TextColor="Black" PlaceholderColor="Gray" BackgroundColor="Transparent" Grid.Column="1"/>
+                            <Picker x:Name="GroupPicker" Title="Select Group" Grid.Column="1" BackgroundColor="Transparent" TextColor="Black" />
                         </Grid>
                     </Frame>
 

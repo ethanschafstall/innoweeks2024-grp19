@@ -90,7 +90,7 @@ namespace FeelingsApp
 
                                     FeelingResponse = feelingResponse.Feeling;
                                     feelingButton.Text = FeelingResponse.FeeMood;
-                                    feelingButton.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
+                                    //feelingButton.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
                                     //feeling.BackgroundColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
                                     var feelingColor = GetColorForMood(feelingResponse.Feeling.FeeMood);
                                     HomeImage.Source = GetHomeImgForMood(feelingResponse.Feeling.FeeMood);

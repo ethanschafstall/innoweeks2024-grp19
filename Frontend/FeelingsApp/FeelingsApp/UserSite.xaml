@@ -18,17 +18,6 @@
                 <Label Text="{Binding Username}"  FontSize="Title" TextColor="White" x:Name="userName"/>
             </StackLayout>
 
-            <Label 
-                    x:Name="myUserFeeling"
-            TextColor="White" 
-            Text="{Binding FeelingResponse.Mood}" 
-            Style="{StaticResource Headline}" 
-            SemanticProperties.HeadingLevel="Level1" 
-            FontAttributes="Bold"      
-            VerticalTextAlignment="Center" 
-                    LineBreakMode="WordWrap"
-                    
-        />
 
             <Button
                 Margin="0,100,0,0" 

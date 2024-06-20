@@ -30,11 +30,10 @@ public partial class UserSite : ContentPage
             var feeMood = await SecureStorage.GetAsync("FeeMood");
             var backgroundColorString = await SecureStorage.GetAsync("BackgroundColorFeeling");
            var userNameString= await SecureStorage.GetAsync("username");
-            userName.Text = $"{userNameString} est";
+            userName.Text = $"{userNameString}";
 
             if (!string.IsNullOrEmpty(feeMood))
             {
-                myUserFeeling.Text = feeMood;
             }
 
             if (!string.IsNullOrEmpty(backgroundColorString))

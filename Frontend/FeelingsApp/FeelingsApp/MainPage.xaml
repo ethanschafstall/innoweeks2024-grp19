@@ -16,7 +16,6 @@
         </Image>
 
         <Grid HeightRequest="350" WidthRequest="350" Margin="-5,0,0,0">
-                <!-- Imagen de fondo -->
                 <Image Source="feelings_home_img.png"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
@@ -24,7 +23,6 @@
                        x:Name="HomeImage"
                        />
 
-                <!-- Imagen principal -->
             <Image Source="feelings_button_img.png"
                HorizontalOptions="Center"
                VerticalOptions="Center" 
