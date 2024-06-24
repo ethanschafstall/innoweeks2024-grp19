@@ -70,9 +70,8 @@ export const getFeelingsByUserId = async (req, res) => {
     });
 };
 
-export const getLastFeelingByUserId = async (req, res) => {
+export const getLastFeeling = async (req, res) => {
     const token = req.cookies.authToken;
-    const { id } = req.params; 
 
     if (!token) {
         const message = `You did not provide an authentication token.`;
@@ -87,10 +86,10 @@ export const getLastFeelingByUserId = async (req, res) => {
                 : "The request is invalid. Please check your login details.";
             return res.status(401).json({ message });
         }
-
+        const userId = decodedToken.id;
         const queryString = `SELECT * FROM t_feelings WHERE fkUser = ? ORDER BY feelingsId DESC LIMIT 1`;
         try {
-            const [rows] = await req.dbConnection.execute(queryString, [id]);
+            const [rows] = await req.dbConnection.execute(queryString, [userId]);
             if (rows.length > 0) {
                 return res.status(200).json({ feeling: rows[0] });
             } else {
