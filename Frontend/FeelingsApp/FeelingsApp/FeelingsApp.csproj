@@ -75,6 +75,7 @@
 	  <None Remove="Resources\Images\signin.png" />
 	  <None Remove="Resources\Images\signup.png" />
 	  <None Remove="Resources\Images\tristesse_logo.png" />
+	  <None Remove="Resources\Images\updating.png" />
 	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\user_icon.png" />
 	</ItemGroup>

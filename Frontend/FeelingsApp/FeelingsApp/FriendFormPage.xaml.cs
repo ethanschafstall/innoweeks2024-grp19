@@ -10,6 +10,7 @@ using FeelingsApp.ViewModel;
 using Microsoft.Maui.Controls;
 using System.ComponentModel;
 using System.Net.Http.Json;
+using Microsoft.Maui.Controls;
 
 
 namespace FeelingsApp
@@ -26,6 +27,9 @@ namespace FeelingsApp
             //  client = new HttpClient();
             LoadGroupsAsync();
 
+            var panGesture = new PanGestureRecognizer();
+            panGesture.PanUpdated += OnPanUpdated;
+            this.Content.GestureRecognizers.Add(panGesture);
 
         }
 
@@ -52,6 +56,7 @@ namespace FeelingsApp
 
                     GroupPicker.ItemsSource = groupsResponse.Groups;
                     GroupPicker.ItemDisplayBinding = new Binding("GroName");
+
                 }
                 else
                 {
@@ -101,6 +106,8 @@ namespace FeelingsApp
             if (response.IsSuccessStatusCode)
             {
                 await DisplayAlert("Success", "Friend added successfully.", "OK");
+                await Navigation.PushAsync(new FriendsSite());
+
             }
             else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
             {
@@ -176,5 +183,21 @@ namespace FeelingsApp
             public string GroName { get; set; }
             public int FkUser { get; set; }
         }
+
+        private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+        {
+            switch (e.StatusType)
+            {
+                case GestureStatus.Running:
+                    // Detectar desplazamiento hacia la derecha
+                    if (e.TotalX > 100) // Puedes ajustar este valor según sea necesario
+                    {
+                        Navigation.PopAsync();
+                    }
+                    break;
+            }
+        }
     }
+
+
 }

@@ -69,11 +69,12 @@ export const getFriendsFeelings = async (req, res) => {
         }
 
         const userId = decodedToken.id;
-        const username = decodedToken.username
+        const username = decodedToken.username;
+
         try {
             // First query to get the group owners where the authenticated user is a member
             const groupOwnersQuery = `
-                SELECT g.fkUser
+                SELECT DISTINCT g.fkUser
                 FROM t_group_members as gm
                 JOIN t_groups as g ON gm.fkGroup = g.groupId
                 WHERE gm.fkUser = ?
@@ -82,6 +83,9 @@ export const getFriendsFeelings = async (req, res) => {
 
             const groupOwnerIds = groupOwnersRows.map(row => row.fkUser);
 
+            if (groupOwnerIds.length === 0) {
+                return res.status(404).json({ message: "No group owners found for the user." });
+            }
 
             // Initialize an array to hold the feelings
             const feelings = [];
@@ -104,8 +108,8 @@ export const getFriendsFeelings = async (req, res) => {
             }
 
             if (feelings.length > 0) {
-                console.log(`${username} got feelings of their friends`)
-                console.table(feelings)
+                console.log(`${username} got feelings of their friends`);
+                console.table(feelings);
                 return res.status(200).json({ feelings });
             } else {
                 return res.status(404).json({ message: "No feelings found for the specified users." });

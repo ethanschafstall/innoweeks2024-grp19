@@ -6,6 +6,7 @@ using System.Diagnostics;
 namespace FeelingsApp;
 using System.Net.Http.Json;
 using System.Net.Http.Headers;
+using Microsoft.Maui.Controls;
 
 public partial class FeelingsSite : ContentPage
 {
@@ -26,6 +27,10 @@ public partial class FeelingsSite : ContentPage
             };
 
         FeelingListView.ItemsSource = Feelings;
+
+        var panGesture = new PanGestureRecognizer();
+        panGesture.PanUpdated += OnPanUpdated;
+        this.Content.GestureRecognizers.Add(panGesture);
     }
     private async void OnConfirmClicked(object sender, EventArgs e)
     {
@@ -86,6 +91,20 @@ public partial class FeelingsSite : ContentPage
         public string IconStatus { get; set; }
 
         
+    }
+
+    private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+    {
+        switch (e.StatusType)
+        {
+            case GestureStatus.Running:
+                // Detectar desplazamiento hacia la derecha
+                if (e.TotalX > 100) // Puedes ajustar este valor según sea necesario
+                {
+                    Navigation.PopAsync();
+                }
+                break;
+        }
     }
 
 }

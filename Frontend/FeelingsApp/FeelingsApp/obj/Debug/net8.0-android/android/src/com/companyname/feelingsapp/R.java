@@ -11627,8 +11627,9 @@ public final class R {
     public static final int tristesse_background=0x7f070103;
     public static final int tristesse_home=0x7f070104;
     public static final int tristesse_logo=0x7f070105;
-    public static final int user=0x7f070106;
-    public static final int user_icon=0x7f070107;
+    public static final int updating=0x7f070106;
+    public static final int user=0x7f070107;
+    public static final int user_icon=0x7f070108;
   }
   public static final class id {
     public static final int ALT=0x7f080000;

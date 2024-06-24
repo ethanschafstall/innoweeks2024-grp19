@@ -38,7 +38,11 @@ public partial class FriendsSite : ContentPage
         // Navegar a la página FriendFormPage
         await Navigation.PushAsync(new FriendFormPage());
     }
-
+    private async void SyncFriends(object sender, EventArgs e)
+    {
+        // Navegar a la página FriendFormPage
+        await Navigation.PushAsync(new FriendsSite());
+    }
     private async void GetFriendsFeelings()
     {
 

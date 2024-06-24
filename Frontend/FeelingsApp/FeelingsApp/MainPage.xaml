@@ -40,7 +40,8 @@
 
         <Frame Grid.Row="0" Grid.Column="0" Margin="0,10,0,0" WidthRequest="200" HeightRequest="75" CornerRadius="20" HasShadow="False" Padding="0">
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="GetColors" />
+                <!--<TapGestureRecognizer Tapped="GetColors" />-->
+                <TapGestureRecognizer Tapped="OnNavigateToFeelingsSite" />
             </Frame.GestureRecognizers>
             <Grid>
                 <Image x:Name="FeelBcImg" Source="joie_background.png" Aspect="AspectFill" Opacity="0.9" />

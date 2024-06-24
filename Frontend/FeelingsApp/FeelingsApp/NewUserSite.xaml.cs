@@ -13,6 +13,7 @@ using System.Xml;
 using Microsoft.Maui.Controls;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using Microsoft.Maui.Controls;
 
 
 namespace FeelingsApp;
@@ -25,7 +26,11 @@ public partial class NewUserSite : ContentPage
     public NewUserSite()
 	{
 		InitializeComponent();
-	}
+
+        var panGesture = new PanGestureRecognizer();
+        panGesture.PanUpdated += OnPanUpdated;
+        this.Content.GestureRecognizers.Add(panGesture);
+    }
 
 
     private async void OnCreateAccountClicked(object sender, EventArgs e)
@@ -47,6 +52,8 @@ public partial class NewUserSite : ContentPage
                 var content = postResponse.Content;
                 var contentS = await postResponse.Content.ReadAsStringAsync();
                 await DisplayAlert("Response", contentS, "OK");
+                await Navigation.PushAsync(new UserSite());
+
 
             }
             else
@@ -67,5 +74,20 @@ public partial class NewUserSite : ContentPage
         public string Username { get; set; }
         public string Password { get; set; }
     }
+
+    private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
+    {
+        switch (e.StatusType)
+        {
+            case GestureStatus.Running:
+                // Detectar desplazamiento hacia la derecha
+                if (e.TotalX > 100) // Puedes ajustar este valor según sea necesario
+                {
+                    Navigation.PopAsync();
+                }
+                break;
+        }
+    }
+
 
 }
