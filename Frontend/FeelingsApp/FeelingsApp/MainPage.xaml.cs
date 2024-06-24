@@ -74,7 +74,7 @@ namespace FeelingsApp
                         {
                             int userId = userResponse.DecodedToken.Id;
 
-                            var requestFeeling = new HttpRequestMessage(HttpMethod.Get, $"https://feelings.blue.section-inf.ch/feelings/{userId}/last");
+                            var requestFeeling = new HttpRequestMessage(HttpMethod.Get, $"https://feelings.blue.section-inf.ch/feelings/last");
                             requestFeeling.Headers.Add("Cookie", $"authToken={authToken}");
 
                             var responseFeeling = await client.SendAsync(requestFeeling);

@@ -22,7 +22,7 @@
             <Button
                 Margin="0,100,0,0" 
                 x:Name="Logout"
-                Text="Desconnexion"  
+                Text="Déconnexion"  
                 FontAttributes="Bold"
                 BackgroundColor="Grey"
                 FontSize="Large"

@@ -27,11 +27,11 @@ public partial class FriendsSite : ContentPage
     private async void LoadLocalFriends()
     {
         // Ejemplo de datos locales de amigos
-        Friends.Add(new Friend { Name = "Alice", Status = "Calme", Color = Colors.Green , ImgStatus=GetImgForMood("Calme")           ,
-            IconStatus = GetIconForMood("Calme")
-        });
-        Friends.Add(new Friend { Name = "Bob", Status = "Triste", Color = Colors.Blue, ImgStatus=GetImgForMood("Tristesse"),IconStatus = GetIconForMood("Tristesse")
-        });
+//        Friends.Add(new Friend { Name = "Alice", Status = "Calme", Color = Colors.Green , ImgStatus=GetImgForMood("Calme")           ,
+          //  IconStatus = GetIconForMood("Calme")
+        //});
+        //Friends.Add(new Friend { Name = "Bob", Status = "Triste", Color = Colors.Blue, ImgStatus=GetImgForMood("Tristesse"),IconStatus = GetIconForMood("Tristesse")
+        //});
     }
     private async void OnAddFriendButtonClicked(object sender, EventArgs e)
     {

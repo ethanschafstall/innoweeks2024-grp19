@@ -56,6 +56,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="View\**" />
+	  <Compile Remove="View\**" />
+	  <EmbeddedResource Remove="View\**" />
+	  <MauiCss Remove="View\**" />
+	  <MauiXaml Remove="View\**" />
+	  <None Remove="View\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
 	  <None Remove="Resources\Images\add_friend.png" />
 	  <None Remove="Resources\Images\amour_logo.png" />
@@ -112,10 +121,6 @@
 	  <MauiXaml Update="UserSite.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="View\" />
 	</ItemGroup>
 
 	<ItemGroup>

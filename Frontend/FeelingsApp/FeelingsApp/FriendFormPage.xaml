@@ -36,7 +36,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="user_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" Margin="5"/>
-                            <Picker x:Name="GroupPicker" Title="Select Group" Grid.Column="1" BackgroundColor="Transparent" TextColor="Black" />
+                            <Picker x:Name="GroupPicker" Title="Nom du Group" Grid.Column="1" BackgroundColor="Transparent" TextColor="Black" />
                         </Grid>
                     </Frame>
 
@@ -82,7 +82,7 @@
                 </StackLayout>
             </Frame>
 
-            <Label Text="Créer un group" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" Margin="0,20,0,0"/>
+            <Label Text="Créer un groupe" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" Margin="0,20,0,0"/>
 
 
             <Frame CornerRadius="25" BackgroundColor="Transparent" Padding="20" BorderColor="White">
@@ -120,7 +120,7 @@ HasShadow="False">
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="1"
-        Text="+  Créer un group"
+        Text="+  Créer un groupe"
         VerticalOptions="Center"                        
         TextColor="White"
         FontSize="Small"
