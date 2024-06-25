@@ -52,7 +52,7 @@ public partial class NewUserSite : ContentPage
                 var content = postResponse.Content;
                 var contentS = await postResponse.Content.ReadAsStringAsync();
                 await DisplayAlert("Response", contentS, "OK");
-                await Navigation.PushAsync(new UserSite());
+                await Navigation.PushAsync(new LoginSite());
 
 
             }

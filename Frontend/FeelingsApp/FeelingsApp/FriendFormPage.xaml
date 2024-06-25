@@ -120,7 +120,7 @@ HasShadow="False">
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="1"
-        Text="+  Créer un groupe"
+        Text="+ Créer un groupe"
         VerticalOptions="Center"                        
         TextColor="White"
         FontSize="Small"

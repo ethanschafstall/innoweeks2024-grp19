@@ -32,11 +32,7 @@
                     <TapGestureRecognizer Tapped="OnNavigateToFeelingsSite" />
                 </Image.GestureRecognizers>
             </Image>
-
-
-            
-  
-            </Grid>
+        </Grid>
 
         <Frame Grid.Row="0" Grid.Column="0" Margin="0,10,0,0" WidthRequest="200" HeightRequest="75" CornerRadius="20" HasShadow="False" Padding="0">
             <Frame.GestureRecognizers>
@@ -47,9 +43,12 @@
                 <Image x:Name="FeelBcImg" Source="joie_background.png" Aspect="AspectFill" Opacity="0.9" />
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <Label x:Name="feelingButton" FontSize="Large"  FontAttributes="Bold" Text="{Binding FeelingResponse.Mood}" HorizontalOptions="CenterAndExpand" Margin="10,0,0,0" TextColor="Black" />
+
                 </StackLayout>
             </Grid>
         </Frame>
+        <Button  ImageSource="updating.png"  BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  Margin="250,-85,0,0" Clicked="SyncFeelings" HeightRequest="50" WidthRequest="50"/>
+
 
     </VerticalStackLayout>
 

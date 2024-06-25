@@ -16,7 +16,6 @@ namespace FeelingsApp
         public MainPage()
         {
             InitializeComponent();
-            //GetColors();
             BindingContext = new FeelingsSite();
             
         }
@@ -31,18 +30,19 @@ namespace FeelingsApp
             FeelBcImg.Source = GetFeelBcForMood(feelingButton.Text);
 
         }
+        public MainPage(string feelingMood)
+        {
+            InitializeComponent();
+            BindingContext = new FeelingsSite();
+            //feeling.BackgroundColor = selectedFeeling.Color;
+            feelingButton.Text = feelingMood;
+            //feelingButton.BackgroundColor = GetColorForMood(feelingButton.Text);
+            HomeImage.Source = GetHomeImgForMood(feelingButton.Text);
+            FeelBcImg.Source = GetFeelBcForMood(feelingButton.Text);
 
-        //private void OnCounterClicked(object sender, EventArgs e)
-        //{
-        //    count++;
+        }
 
-        //    if (count == 1)
-        //        CounterBtn.Text = $"Clicked {count} time";
-        //    else
-        //        CounterBtn.Text = $"Clicked {count} times";
 
-        //    SemanticScreenReader.Announce(CounterBtn.Text);
-        //}
         private async void OnNavigateToFeelingsSite(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new FeelingsSite()); 
@@ -98,7 +98,7 @@ namespace FeelingsApp
                                     await SecureStorage.SetAsync("FeeMood", feelingResponse.Feeling.FeeMood);
                                     await SecureStorage.SetAsync("BackgroundColorFeeling", feelingColor.ToString());
 
-                                    await DisplayAlert("Last Feeling", $"Mood: {feelingResponse.Feeling.FkUser}, CreatedAt: {feelingResponse.Feeling.FeeCreatedAt}", "OK");
+                                    //await DisplayAlert("Last Feeling", $"Mood: {feelingResponse.Feeling.FkUser}, CreatedAt: {feelingResponse.Feeling.FeeCreatedAt}", "OK");
                                 }
                             }
                         }
@@ -119,7 +119,12 @@ namespace FeelingsApp
             }
             
         }
-
+        private async void SyncFeelings(object sender, EventArgs e)
+        {
+            // Navegar a la página FriendFormPage
+            var feelingNow = await SecureStorage.GetAsync("FeeMood");
+            await Navigation.PushAsync(new MainPage(feelingNow));
+        }
         private Color GetColorForMood(string mood)
         {
             switch (mood)
