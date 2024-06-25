@@ -131,15 +131,15 @@ namespace FeelingsApp
             {
                 case "Peur":
                     return Color.FromArgb("#7542fe");
-                case "Amour":
+                case "Amoureux":
                     return Color.FromArgb("#db91c5");
-                case "Colère":
+                case "Colere":
                     return Color.FromArgb("#ed201c");
-                case "Joie":
+                case "Joyeux":
                     return Color.FromArgb("#febe00");
                 case "Calme":
                     return Color.FromArgb("#6BD219");
-                case "Tristesse":
+                case "Triste":
                     return Color.FromArgb("#0A97B6");
                 default:
                     return Colors.DarkGray;
@@ -151,15 +151,15 @@ namespace FeelingsApp
             {
                 case "Peur":
                     return "peur_logo.png";
-                case "Amour":
+                case "Amoureux":
                     return "amour_logo.png";
-                case "Colère":
+                case "Colere":
                     return "colere_logo.png";
-                case "Joie":
+                case "Joyeux":
                     return "joie_logo.png";
                 case "Calme":
                     return "calme_logo.png";
-                case "Tristesse":
+                case "Triste":
                     return "tristesse_logo.png";
                 default:
                     return "joie_logo.png";
@@ -171,15 +171,15 @@ namespace FeelingsApp
             {
                 case "Peur":
                     return "peur_home.png";
-                case "Amour":
+                case "Amoureux":
                     return "amour_home.png";
-                case "Colère":
+                case "Colere":
                     return "colere_home.png";
-                case "Joie":
+                case "Joyeux":
                     return "joie_home.png";
                 case "Calme":
                     return "calme_home.png";
-                case "Tristesse":
+                case "Triste":
                     return "tristesse_home.png";
                 default:
                     return "feelings_home_img.png";
@@ -192,15 +192,15 @@ namespace FeelingsApp
             {
                 case "Peur":
                     return "peur_background.png";
-                case "Amour":
+                case "Amoureux":
                     return "amour_background.png";
-                case "Colère":
+                case "Colere":
                     return "colere_background.png";
-                case "Joie":
+                case "Joyeux":
                     return "joie_background.png";
                 case "Calme":
                     return "calme_background.png";
-                case "Tristesse":
+                case "Triste":
                     return "tristesse_background.png";
                 default:
                     return "joie_background.png";

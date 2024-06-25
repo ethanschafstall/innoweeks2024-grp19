@@ -19,11 +19,11 @@ public partial class FeelingsSite : ContentPage
         Feelings = new ObservableCollection<Feeling>
             {
                 new Feeling { Name = "Peur", Color = Color.FromArgb("#7542fe") , ImgBgSrc="peur_background.png", IconStatus="peur_logo.png"},
-                new Feeling { Name = "Amour",  Color =  Color.FromArgb("#db91c5"),ImgBgSrc="amour_background.png",IconStatus="amour_logo.png"},
-                new Feeling { Name = "Colère",  Color =  Color.FromArgb("#ed201c"),ImgBgSrc="colere_background.png",IconStatus="colere_logo.png"},
-                new Feeling { Name = "Joie",  Color =  Color.FromArgb("#febe00"),ImgBgSrc="joie_background.png",IconStatus="joie_logo.png"},
+                new Feeling { Name = "Amoureux",  Color =  Color.FromArgb("#db91c5"),ImgBgSrc="amour_background.png",IconStatus="amour_logo.png"},
+                new Feeling { Name = "Colere",  Color =  Color.FromArgb("#ed201c"),ImgBgSrc="colere_background.png",IconStatus="colere_logo.png"},
+                new Feeling { Name = "Joyeux",  Color =  Color.FromArgb("#febe00"),ImgBgSrc="joie_background.png",IconStatus="joie_logo.png"},
                 new Feeling { Name = "Calme",  Color =  Color.FromArgb("#6BD219"), ImgBgSrc="calme_background.png",IconStatus="calme_logo.png"},
-                new Feeling { Name = "Tristesse",  Color =  Color.FromArgb("#0A97B6"), ImgBgSrc="tristesse_background.png",IconStatus="tristesse_logo.png"}
+                new Feeling { Name = "Triste",  Color =  Color.FromArgb("#0A97B6"), ImgBgSrc="tristesse_background.png",IconStatus="tristesse_logo.png"}
             };
 
         FeelingListView.ItemsSource = Feelings;
