@@ -54,14 +54,3 @@
 *Fin avec le logo de l'application Feelings et le slogan : "Feelings App – Connecter les cœurs."*
 
 ---
-
-# Conseils et recommandations
-
-1. **Cadre de la salle de classe** : Utilisez les salles de classe pour les scènes impliquant le visionnage du match et les interactions des élèves.
-2. **Jardin zen** : Utilisez le jardin zen pour un cadre calme et réfléchi où le père de Lucas Simoes peut recevoir la notification et passer l'appel.
-3. **Couloirs** : Les couloirs peuvent être utilisés pour des plans de transition, montrant les déplacements entre les différents décors.
-4. **Afficher l'interface de l'application** : Assurez-vous que chaque segment montre clairement l'interface de l'application, démontrant sa facilité d'utilisation.
-5. **Souligner les notifications** : Mettez en évidence les notifications sur les téléphones et les dispositifs portables pour montrer la connectivité en temps réel de l'application.
-6. **Inclure diverses émotions** : Si possible, montrez brièvement différentes émotions partagées par d'autres personnages pour illustrer la gamme de sentiments que l'application peut gérer.
-7. **Utiliser une narration engageante** : Une voix-off chaleureuse et engageante aidera à guider les spectateurs à travers l'histoire et à expliquer les fonctionnalités de l'application de manière fluide.
-8. **Effets visuels et sonores** : Ajoutez une musique de fond qui correspond à l'ambiance de chaque scène et utilisez des effets sonores pour les notifications afin de rendre la vidéo plus dynamique.
